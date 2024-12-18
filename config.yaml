@@ -1,0 +1,199 @@
+model_list:
+  # ANTHROPIC/sonnet3.5-20241022
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__HWAL_CHOE
+      # Rate Limits
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      rpm: 70
+      tpm: 56000
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@hwal.choe
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
+      # Rate Limits
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      rpm: 70
+      tpm: 56000
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_02
+  
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      # Rate Limits
+      # RPM: 4000, Input TPM: 400000, Output TPM: 80000
+      rpm: 2800
+      tpm: 280000
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: openrouter/anthropic/claude-3.5-sonnet
+      api_key: os.environ/OPENROUTER_API_KEY_DEV
+      rpm: 70
+      tpm: 56000
+      model_info:
+        id: openrouter/anthropic/claude-3-5-sonnet?api-key@openrouter
+
+  - model_name: anthropic/claude-3-5-haiku
+    litellm_params:
+      model: claude-3-5-haiku-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__HWAL_CHOE
+      rpm: 70
+      tpm: 56000
+      model_info:
+        id: anthropic/claude-3-5-haiku?api-key@hwal.choe
+
+  - model_name: anthropic/claude-3-5-haiku
+    litellm_params:
+      model: claude-3-5-haiku-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
+      rpm: 70
+      tpm: 56000
+      model_info:
+        id: anthropic/claude-3-5-haiku?api-key@dev_llm_02
+
+  - model_name: anthropic/claude-3-5-haiku
+    litellm_params:
+      model: openrouter/anthropic/claude-3.5-haiku
+      api_key: os.environ/OPENROUTER_API_KEY_DEV
+      rpm: 70
+      tpm: 56000
+      model_info:
+        id: openrouter/anthropic/claude-3-5-haiku?api-key@openrouter
+
+  # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
+  - model_name: bedrock/claude-3-5-sonnet
+    litellm_params:
+      model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: os.environ/AWS_REGION_NAME
+      rpm: 20
+      model_info:
+        id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@hwal.choe
+        litellm_provider: bedrock
+        mode: completion
+
+  - model_name: bedrock/claude-3-5-haiku
+  # 쓰벌것
+  # https://github.com/Aider-AI/aider/issues/2262
+  # https://github.com/BerriAI/litellm/issues/5899#issuecomment-2375360951
+    litellm_params:
+      # model: bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0
+      model: us.anthropic.claude-3-5-haiku-20241022-v1:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: os.environ/AWS_REGION_NAME
+      rpm: 20
+      model_info:
+        id: bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0@hwal.choe
+        litellm_provider: bedrock
+        mode: completion
+        # https://docs.litellm.ai/docs/proxy/health
+
+  # GEMINI  |  https://docs.litellm.ai/docs/providers/gemini
+  - model_name: gemini/*
+    litellm_params:
+      model: gemini/*
+      api_key: os.environ/GEMINI_API_KEY
+      drop_params: true
+      model_info:
+        mode: completion
+
+
+  # OPENAI
+  - model_name: openai/*
+    litellm_params:
+      model: openai/*
+      api_key: os.environ/OPENAI_API_KEY_DEV
+      model_info:
+        mode: completion
+
+
+  # FAKE
+  - model_name: fake-openai-endpoint
+    litellm_params:
+      model: openai/fake
+      api_key: fake-key
+      api_base: https://exampleopenaiendpoint-production.up.railway.app/
+  - model_name: fake-openai-endpoint-2
+    litellm_params:
+      model: openai/my-fake-model
+      api_key: my-fake-key
+      api_base: https://exampleopenaiendpoint-production.up.railway.app/
+      stream_timeout: 0.001
+      rpm: 1
+  - model_name: fake-openai-endpoint-3
+    litellm_params:
+      model: openai/my-fake-model
+      api_key: my-fake-key
+      api_base: https://exampleopenaiendpoint-production.up.railway.app/
+      stream_timeout: 0.001
+      rpm: 1000
+  - model_name: fake-openai-endpoint-3
+    litellm_params:
+      model: openai/my-fake-model-2
+      api_key: my-fake-key
+      api_base: https://exampleopenaiendpoint-production.up.railway.app/
+      stream_timeout: 0.001
+      rpm: 1000
+
+
+
+litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
+  # set_verbose: true
+  drop_params: false
+  cache: true          # set cache responses to True, litellm defaults to using a redis cache
+  num_retries: 5
+  request_timeout: 600
+  telemetry: False
+
+  # https://docs.litellm.ai/docs/proxy/configs#load-balancing
+  fallbacks: [{"anthropic/claude-3-5-sonnet": ["bedrock/claude-3-5-sonnet"]}]
+  allowed_fails: 2
+
+  success_callback: ["langfuse"] # OPT
+  failure_callback: ["langfuse"]  # list of failure callbacks
+  # callbacks: ["otel"]  # list of callbacks - runs on success and failure
+  redact_user_api_key_info: true
+  langfuse_default_tags:
+  # default tags for Langfuse Logging
+    - "cache_hit"
+    - "cache_key"
+    - "proxy_base_url"
+    - "user_api_key_alias"
+    - "user_api_key_user_id"
+    - "user_api_key_user_email"
+    - "user_api_key_team_alias"
+    - "semantic-similarity"
+    - "proxy_base_url"
+
+router_settings:
+  # routing_strategy: usage-based-routing
+  routing_strategy: usage-based-routing-v2
+
+  redis_host: os.environ/REDIS_HOST
+  redis_port: os.environ/REDIS_PORT
+  redis_password: os.environ/REDIS_PASSWORD
+  enable_pre_call_checks: true
+  model_group_alias: {"my-special-fake-model-alias-name": "fake-openai-endpoint-3"}
+
+general_settings:
+  # https://docs.litellm.ai/docs/proxy/db_info#how-to-disable-litellm_spendlogs
+  # Langfuse 연동이 가능하다면 이것은 필요하지 않음. 또한, Enterprise가 아니면 볼수없다.
+  disable_spend_logs: True
+
+  store_model_in_db: True
+  proxy_budget_rescheduler_min_time: 60
+  proxy_budget_rescheduler_max_time: 64
+  proxy_batch_write_at: 1
+  database_connection_pool_limit: 10
+
