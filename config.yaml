@@ -33,14 +33,6 @@ model_list:
       model_info:
         id: anthropic/claude-3-5-sonnet?api-key@dev
 
-  - model_name: anthropic/claude-3-5-sonnet
-    litellm_params:
-      model: openrouter/anthropic/claude-3.5-sonnet
-      api_key: os.environ/OPENROUTER_API_KEY_DEV
-      rpm: 70
-      tpm: 56000
-      model_info:
-        id: openrouter/anthropic/claude-3-5-sonnet?api-key@openrouter
 
   - model_name: anthropic/claude-3-5-haiku
     litellm_params:
@@ -60,14 +52,7 @@ model_list:
       model_info:
         id: anthropic/claude-3-5-haiku?api-key@dev_llm_02
 
-  - model_name: anthropic/claude-3-5-haiku
-    litellm_params:
-      model: openrouter/anthropic/claude-3.5-haiku
-      api_key: os.environ/OPENROUTER_API_KEY_DEV
-      rpm: 70
-      tpm: 56000
-      model_info:
-        id: openrouter/anthropic/claude-3-5-haiku?api-key@openrouter
+
 
   # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
   - model_name: bedrock/claude-3-5-sonnet
@@ -75,12 +60,25 @@ model_list:
       model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
-      aws_region_name: os.environ/AWS_REGION_NAME
-      rpm: 20
+      aws_region_name: us-east-1
+      rpm: 100
       model_info:
-        id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@hwal.choe
+        id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@vivident.us-east-1
         litellm_provider: bedrock
         mode: completion
+
+  - model_name: bedrock/claude-3-5-sonnet
+    litellm_params:
+      model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: us-west-2
+      rpm: 100
+      model_info:
+        id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@vivident.us-west-2
+        litellm_provider: bedrock
+        mode: completion
+
 
   - model_name: bedrock/claude-3-5-haiku
   # 쓰벌것
@@ -151,14 +149,16 @@ model_list:
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
   # set_verbose: true
   drop_params: false
-  cache: true          # set cache responses to True, litellm defaults to using a redis cache
-  num_retries: 1
-  request_timeout: 45
+  # cache: true          # set cache responses to True, litellm defaults to using a redis cache
+  num_retries: 0
+  request_timeout: 60
   telemetry: False
 
   # https://docs.litellm.ai/docs/proxy/configs#load-balancing
-  fallbacks: [{"anthropic/claude-3-5-sonnet": ["bedrock/claude-3-5-sonnet"]}]
-  allowed_fails: 2
+  fallbacks:
+   - {"anthropic/claude-3-5-sonnet": ["bedrock/claude-3-5-sonnet"]}
+   - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet"]}
+  allowed_fails: 1
 
   success_callback: ["langfuse"] # OPT
   failure_callback: ["langfuse"]  # list of failure callbacks
