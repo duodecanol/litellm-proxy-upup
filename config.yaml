@@ -1,4 +1,11 @@
 model_list:
+  - model_name: anthropic/claude-3-5-sonnet-20240620*
+    litellm_params:
+      model: anthropic/claude-3-5-sonnet-20240620*
+      api_base: http://10.78.245.52:9119
+      api_key: fake-antropic-key
+      rpm: 3000
+
   # ANTHROPIC/sonnet3.5-20241022
   - model_name: anthropic/claude-3-5-sonnet
     litellm_params:
@@ -157,6 +164,10 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
   # https://docs.litellm.ai/docs/proxy/configs#load-balancing
   fallbacks:
    - {"anthropic/claude-3-5-sonnet": ["bedrock/claude-3-5-sonnet"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-529": ["bedrock/claude-3-5-sonnet"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-sonnet"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-sonnet"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-429": ["bedrock/claude-3-5-sonnet"]}
    - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet"]}
   allowed_fails: 1
 
