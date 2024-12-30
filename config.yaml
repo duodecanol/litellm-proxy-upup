@@ -1,5 +1,6 @@
 model_list:
-  # Fake anthropic
+################################################################
+# Fake anthropic
   - model_name: anthropic/claude-3-5-sonnet-20240620*
     litellm_params:
       model: anthropic/claude-3-5-sonnet-20240620*
@@ -7,7 +8,8 @@ model_list:
       api_key: fake-antropic-key
       rpm: 3000
 
-  # ANTHROPIC/sonnet3.5-20241022
+################################################################
+# ANTHROPIC/sonnet3.5-20241022
   - model_name: anthropic/claude-3-5-sonnet
     litellm_params:
       model: claude-3-5-sonnet-20241022
@@ -42,7 +44,8 @@ model_list:
       model_info:
         id: anthropic/claude-3-5-sonnet?api-key@dev
 
-
+################################################################
+# ANTHROPIC/haiku 3.5
   - model_name: anthropic/claude-3-5-haiku
     litellm_params:
       model: claude-3-5-haiku-20241022
@@ -60,8 +63,8 @@ model_list:
         id: anthropic/claude-3-5-haiku?api-key@dev_llm_02
 
 
-
-  # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
+################################################################
+# BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
   - model_name: bedrock/claude-3-5-sonnet
     litellm_params:
       model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
@@ -86,10 +89,11 @@ model_list:
         litellm_provider: bedrock
         mode: completion
 
-
-  # 쓰벌것
-  # https://github.com/Aider-AI/aider/issues/2262
-  # https://github.com/BerriAI/litellm/issues/5899#issuecomment-2375360951
+################################################################
+# BEDROCK Haiku
+# 쓰벌것
+# https://github.com/Aider-AI/aider/issues/2262
+# https://github.com/BerriAI/litellm/issues/5899#issuecomment-2375360951
   - model_name: bedrock/claude-3-5-haiku
     litellm_params:
       # model: bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0
@@ -114,7 +118,8 @@ model_list:
         litellm_provider: bedrock
         mode: completion
 
-  # GEMINI  |  https://docs.litellm.ai/docs/providers/gemini
+################################################################
+# GEMINI  |  https://docs.litellm.ai/docs/providers/gemini
   - model_name: gemini/*
     litellm_params:
       model: gemini/*
@@ -123,8 +128,8 @@ model_list:
       model_info:
         mode: completion
 
-
-  # OPENAI
+################################################################
+# OPENAI
   - model_name: openai/*
     litellm_params:
       model: openai/*
@@ -132,8 +137,8 @@ model_list:
       model_info:
         mode: completion
 
-
-  # FAKE
+################################################################
+# FAKE OpenAI
   - model_name: fake-openai-endpoint
     litellm_params:
       model: openai/fake
