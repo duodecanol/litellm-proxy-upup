@@ -68,7 +68,7 @@ model_list:
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-east-1
-      rpm: 100
+      # rpm: 100
       model_info:
         id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@vivident.us-east-1
         litellm_provider: bedrock
@@ -80,29 +80,39 @@ model_list:
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-west-2
-      rpm: 100
+      # rpm: 100
       model_info:
         id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@vivident.us-west-2
         litellm_provider: bedrock
         mode: completion
 
 
-  - model_name: bedrock/claude-3-5-haiku
   # 쓰벌것
   # https://github.com/Aider-AI/aider/issues/2262
   # https://github.com/BerriAI/litellm/issues/5899#issuecomment-2375360951
+  - model_name: bedrock/claude-3-5-haiku
     litellm_params:
       # model: bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0
       model: us.anthropic.claude-3-5-haiku-20241022-v1:0
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
-      aws_region_name: os.environ/AWS_REGION_NAME
-      rpm: 20
+      aws_region_name: us-east-1
       model_info:
-        id: bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0@hwal.choe
+        id: bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0@vivident.us-east-1
         litellm_provider: bedrock
         mode: completion
         # https://docs.litellm.ai/docs/proxy/health
+
+  - model_name: bedrock/claude-3-5-haiku
+    litellm_params:
+      model: us.anthropic.claude-3-5-haiku-20241022-v1:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: us-west-2
+      model_info:
+        id: bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0@vivident.us-west-2
+        litellm_provider: bedrock
+        mode: completion
 
   # GEMINI  |  https://docs.litellm.ai/docs/providers/gemini
   - model_name: gemini/*
@@ -170,7 +180,7 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
    - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-sonnet"]}
    - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-sonnet"]}
    - {"anthropic/claude-3-5-sonnet-20240620-429": ["bedrock/claude-3-5-sonnet"]}
-   - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet"]}
+  #  - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet"]}
    - {"anthropic/claude-3-5-sonnet": ["bedrock/claude-3-5-sonnet"]}
   allowed_fails: 1
 
