@@ -13,6 +13,17 @@ model_list:
   - model_name: anthropic/claude-3-5-sonnet
     litellm_params:
       model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      # Rate Limits
+      # RPM: 4000, Input TPM: 400000, Output TPM: 80000
+      # LiteLLM rpm = 400000 / 7000 = 57.14
+      rpm: 56
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
       api_key: os.environ/ANTHROPIC_API_KEY__HWAL_CHOE
       # Rate Limits
       # RPM: 1000, Input TPM: 80000, Output TPM: 16000
@@ -26,23 +37,52 @@ model_list:
   - model_name: anthropic/claude-3-5-sonnet
     litellm_params:
       model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
+      # Rate Limits
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      rpm: 11
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_01
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
       # Rate Limits
       # RPM: 1000, Input TPM: 80000, Output TPM: 16000
       rpm: 11
       model_info:
         id: anthropic/claude-3-5-sonnet?api-key@dev_llm_02
-  
+
   - model_name: anthropic/claude-3-5-sonnet
     litellm_params:
       model: claude-3-5-sonnet-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_03
       # Rate Limits
-      # RPM: 4000, Input TPM: 400000, Output TPM: 80000
-      # LiteLLM rpm = 400000 / 7000 = 57.14
-      rpm: 56
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      rpm: 11
       model_info:
-        id: anthropic/claude-3-5-sonnet?api-key@dev
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_03
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
+      # Rate Limits
+      # RPM: 5, Input TPM: 20000, Output TPM: 4000
+      rpm: 11
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_04
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_05
+      # Rate Limits
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      rpm: 11
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_05
 
 ################################################################
 # ANTHROPIC/haiku 3.5
@@ -172,7 +212,7 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
   set_verbose: true
   drop_params: false  # https://docs.litellm.ai/docs/completion/drop_params
   # cache: true          # set cache responses to True, litellm defaults to using a redis cache
-  num_retries: 0
+  num_retries: 2
   request_timeout: 60
   telemetry: False
   
