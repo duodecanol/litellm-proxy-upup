@@ -8,7 +8,7 @@ services:
     command:
      - --config=/app/config.yaml
     #  - --detailed_debug
-     - --num_workers=4
+     - --num_workers=6
     ports:
       - "4000:4000"
     depends_on:
@@ -19,8 +19,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 4.0
-          memory: 2048M
+          cpus: 6.0
+          memory: 4096M
     environment:
         DATABASE_URL: "postgresql://${POSTGRES_USER:-llmproxy}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-litellm}"
         STORE_MODEL_IN_DB: "True" # allows adding models to proxy via UI
@@ -42,7 +42,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 512M
+          memory: 2048M
     environment:
       REDIS_ARGS: "--save 60 1000 --requirepass ${REDIS_PASSWORD}"
       # REDISEARCH_ARGS:
