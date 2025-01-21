@@ -65,15 +65,15 @@ model_list:
       model_info:
         id: anthropic/claude-3-5-sonnet?api-key@dev_llm_03
 
-  # - model_name: anthropic/claude-3-5-sonnet
-  #   litellm_params:
-  #     model: claude-3-5-sonnet-20241022
-  #     api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
-  #     # Rate Limits
-  #     # RPM: 5, Input TPM: 20000, Output TPM: 4000
-  #     rpm: 1000
-  #     model_info:
-  #       id: anthropic/claude-3-5-sonnet?api-key@dev_llm_04
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
+      # Rate Limits
+      # RPM: 5, Input TPM: 20000, Output TPM: 4000
+      rpm: 1000
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_04
 
   - model_name: anthropic/claude-3-5-sonnet
     litellm_params:
