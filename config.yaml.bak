@@ -115,6 +115,15 @@ model_list:
 ################################################################
 # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
   - model_name: bedrock/claude-3-5-sonnet
+    model_info: 
+      id: bedrock_3_5_sonnet_20241022_v2_vivident_us_east_1
+      metadata: "Cross Region Inference. 400,000 TPM, 50 RPM"
+      region: "us-east-1"
+      region_qualname: "N. Virginia"
+    
+    tpm: 400000
+    rpm: 50
+
     litellm_params:
       model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
@@ -122,11 +131,19 @@ model_list:
       aws_region_name: us-east-1
       # rpm: 100
       model_info:
-        id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@vivident.us-east-1
         litellm_provider: bedrock
         mode: completion
 
   - model_name: bedrock/claude-3-5-sonnet
+    model_info: 
+      id: bedrock_3_5_sonnet_20241022_v2_vivident_us_west_2
+      metadata: "Cross Region Inference. 2,000,000 TPM, 250 RPM"
+      region: "us-west-2"
+      region_qualname: "Oregon"
+    
+    tpm: 2000000
+    rpm: 250
+
     litellm_params:
       model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
@@ -134,7 +151,6 @@ model_list:
       aws_region_name: us-west-2
       # rpm: 100
       model_info:
-        id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@vivident.us-west-2
         litellm_provider: bedrock
         mode: completion
 
@@ -267,11 +283,13 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
 router_settings:
   # routing_strategy: usage-based-routing
   routing_strategy: usage-based-routing-v2
+  enable_pre_call_checks: true
+  cooldown_time: 0
 
   redis_host: os.environ/REDIS_HOST
   redis_port: os.environ/REDIS_PORT
   redis_password: os.environ/REDIS_PASSWORD
-  enable_pre_call_checks: true
+
   model_group_alias: {"my-special-fake-model-alias-name": "fake-openai-endpoint-3"}
 
 general_settings:
