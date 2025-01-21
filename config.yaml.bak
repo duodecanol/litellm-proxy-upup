@@ -9,155 +9,110 @@ model_list:
       rpm: 3000
 
 ################################################################
-# ANTHROPIC/Claude 3.5 sonnet-20241022 (v2)
-# MAIN dev@vivident.xyz
-  - model_name: anthropic/claude-3-5-sonnet-v2
+# ANTHROPIC/sonnet3.5-20241022
+  - model_name: anthropic/claude-3-5-sonnet
     litellm_params:
       model: claude-3-5-sonnet-20241022
       api_key: os.environ/ANTHROPIC_API_KEY__dev
+      # Rate Limits
+      # RPM: 4000, Input TPM: 400000, Output TPM: 80000
+      # LiteLLM rpm = 400000 / 7000 = 57.14
+      # rpm: 30
+      rpm: 2000
       model_info:
-        id: anthropic/claude-3-5-sonnet-v2?api-key@dev
+        id: anthropic/claude-3-5-sonnet?api-key@dev
 
-################################################################
-# ANTHROPIC/Claude 3.5 sonnet-20240620 (v1)
-# MAIN dev@vivident.xyz
-  - model_name: anthropic/claude-3-5-sonnet-v1
+  # - model_name: anthropic/claude-3-5-sonnet
+  #   litellm_params:
+  #     model: claude-3-5-sonnet-20241022
+  #     api_key: os.environ/ANTHROPIC_API_KEY__HWAL_CHOE
+  #     # Rate Limits
+  #     # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+  #     rpm: 30
+  #     model_info:
+  #       id: anthropic/claude-3-5-sonnet?api-key@hwal.choe
+
+  - model_name: anthropic/claude-3-5-sonnet
     litellm_params:
-      model: claude-3-5-sonnet-20240620
-      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
+      # Rate Limits
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      # LiteLLM rpm = Input TPM / Average chat input token
+      #             = 80000 / 7000
+      #             = 11.42
+      rpm: 1000
       model_info:
-        id: anthropic/claude-3-5-sonnet-v1?api-key@dev
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_01
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
+      # Rate Limits
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      rpm: 1000
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_02
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_03
+      # Rate Limits
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      rpm: 1000
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_03
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
+      # Rate Limits
+      # RPM: 5, Input TPM: 20000, Output TPM: 4000
+      rpm: 1000
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_04
+
+  - model_name: anthropic/claude-3-5-sonnet
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_05
+      # Rate Limits
+      # RPM: 1000, Input TPM: 80000, Output TPM: 16000
+      rpm: 1000
+      model_info:
+        id: anthropic/claude-3-5-sonnet?api-key@dev_llm_05
 
 ################################################################
-# ANTHROPIC/Claude 3.5 haiku-20241022
-# MAIN dev@vivident.xyz
+# ANTHROPIC/haiku 3.5
   - model_name: anthropic/claude-3-5-haiku
     litellm_params:
       model: claude-3-5-haiku-20241022
       api_key: os.environ/ANTHROPIC_API_KEY__dev
+      rpm: 4000
       model_info:
         id: anthropic/claude-3-5-haiku?api-key@dev
 
-################################################################
-# ANTHROPIC/Claude 3.5 sonnet-20241022 (v2)
-# BACKUP dev_llm_0n
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_01
-
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_02
-
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_03
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_03
-
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_04
-
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_05
-      rpm: 1000
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_05
-
-################################################################
-# ANTHROPIC/Claude 3.5 sonnet-20240620 (v1)
-# BACKUP dev_llm_0n
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20240620
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_01
-
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20240620
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_02
-
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20240620
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_03
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_03
-
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20240620
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_04
-
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    litellm_params:
-      model: claude-3-5-sonnet-20240620
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_05
-      rpm: 1000
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_05
-
-################################################################
-# ANTHROPIC/Claude 3.5 haiku-20241022
-# BACKUP dev_llm_0n
-
-  - model_name: anthropic/claude-3-5-haiku-backup
+  - model_name: anthropic/claude-3-5-haiku
     litellm_params:
       model: claude-3-5-haiku-20241022
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
+      rpm: 2000
       model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_01
+        id: anthropic/claude-3-5-haiku?api-key@dev_llm_01
 
-  - model_name: anthropic/claude-3-5-haiku-backup
+  - model_name: anthropic/claude-3-5-haiku
     litellm_params:
       model: claude-3-5-haiku-20241022
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
+      rpm: 2000
       model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_02
+        id: anthropic/claude-3-5-haiku?api-key@dev_llm_02
 
-  - model_name: anthropic/claude-3-5-haiku-backup
-    litellm_params:
-      model: claude-3-5-haiku-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_03
-      model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_03
-
-  - model_name: anthropic/claude-3-5-haiku-backup
-    litellm_params:
-      model: claude-3-5-haiku-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
-      model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_04
-
-  - model_name: anthropic/claude-3-5-haiku-backup
-    litellm_params:
-      model: claude-3-5-haiku-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_05
-      model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_05
 
 ################################################################
-# BEDROCK/Claude 3.5 sonnet-20241022 (v2)
-#
 # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
   - model_name: bedrock/claude-3-5-sonnet
     litellm_params:
@@ -165,6 +120,7 @@ model_list:
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-east-1
+      # rpm: 100
       model_info:
         id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@vivident.us-east-1
         litellm_provider: bedrock
@@ -176,14 +132,15 @@ model_list:
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-west-2
+      # rpm: 100
       model_info:
         id: bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0@vivident.us-west-2
         litellm_provider: bedrock
         mode: completion
 
 ################################################################
-# BEDROCK/Claude 3.5 haiku-20241022
-#
+# BEDROCK Haiku
+# 쓰벌것
 # https://github.com/Aider-AI/aider/issues/2262
 # https://github.com/BerriAI/litellm/issues/5899#issuecomment-2375360951
   - model_name: bedrock/claude-3-5-haiku
@@ -244,7 +201,6 @@ model_list:
       model: openai/fake
       api_key: fake-key
       api_base: https://exampleopenaiendpoint-production.up.railway.app/
-  
   - model_name: fake-openai-endpoint-2
     litellm_params:
       model: openai/my-fake-model
@@ -252,10 +208,16 @@ model_list:
       api_base: https://exampleopenaiendpoint-production.up.railway.app/
       stream_timeout: 0.001
       rpm: 1
-
   - model_name: fake-openai-endpoint-3
     litellm_params:
       model: openai/my-fake-model
+      api_key: my-fake-key
+      api_base: https://exampleopenaiendpoint-production.up.railway.app/
+      stream_timeout: 0.001
+      rpm: 1000
+  - model_name: fake-openai-endpoint-3
+    litellm_params:
+      model: openai/my-fake-model-2
       api_key: my-fake-key
       api_base: https://exampleopenaiendpoint-production.up.railway.app/
       stream_timeout: 0.001
@@ -276,16 +238,13 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
 
   # https://docs.litellm.ai/docs/proxy/configs#load-balancing
   fallbacks:
-   - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2", "anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
-   - {"bedrock/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
-   - {"anthropic/claude-3-5-sonnet-v2": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-529": ["bedrock/claude-3-5-sonnet"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-sonnet"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-sonnet"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-429": ["bedrock/claude-3-5-sonnet"]}
+   - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet"]}
+   - {"anthropic/claude-3-5-sonnet": ["bedrock/claude-3-5-sonnet"]}
    - {"gemini/gemini-2.0-flash-exp": ["gemini/gemini-1.5-flash-latest", "openai/gpt-4o-mini"]}
-   - {"anthropic/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
-   # Test Anthropic server fallback
-   - {"anthropic/claude-3-5-sonnet-20240620-529": ["bedrock/claude-3-5-sonnet-v1"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-sonnet-v1"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-sonnet-v1"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-429": ["bedrock/claude-3-5-sonnet-v1"]}
   allowed_fails: 1
 
   success_callback: ["langfuse"] # OPT
