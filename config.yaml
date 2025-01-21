@@ -232,6 +232,7 @@ model_list:
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-east-1
+      drop_params: true
       model_info:
         litellm_provider: bedrock
         mode: completion
@@ -251,6 +252,7 @@ model_list:
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-west-2
+      drop_params: true
       model_info:
         litellm_provider: bedrock
         mode: completion
@@ -275,6 +277,7 @@ model_list:
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-east-1
+      drop_params: true
       model_info:
         litellm_provider: bedrock
         mode: completion
@@ -295,6 +298,7 @@ model_list:
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-west-2
+      drop_params: true
       model_info:
         litellm_provider: bedrock
         mode: completion
@@ -405,7 +409,9 @@ router_settings:
   redis_port: os.environ/REDIS_PORT
   redis_password: os.environ/REDIS_PASSWORD
 
-  model_group_alias: {"my-special-fake-model-alias-name": "fake-openai-endpoint-3"}
+  model_group_alias: 
+    "my-special-fake-model-alias-name": "fake-openai-endpoint-3"
+    "anthropic/claude-3-5-sonnet":      "anthropic/claude-3-5-sonnet-v2"
 
 general_settings:
   # https://docs.litellm.ai/docs/proxy/db_info#how-to-disable-litellm_spendlogs
