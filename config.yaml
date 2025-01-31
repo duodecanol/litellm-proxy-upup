@@ -2,7 +2,7 @@ model_list:
 ################################################################
 # Fake anthropic
   - model_name: anthropic/claude-3-5-sonnet-20240620*
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20240620_fake
       metadata: "fake Anthropic Claude 3.5 sonnet 20240620"
     rpm: 3000
@@ -10,13 +10,13 @@ model_list:
       model: anthropic/claude-3-5-sonnet-20240620*
       api_base: http://10.78.245.52:9119
       api_key: fake-antropic-key
-    
+
 
 ################################################################
 # ANTHROPIC/Claude 3.5 sonnet-20241022 (v2)
 # MAIN dev@vivident.xyz
   - model_name: anthropic/claude-3-5-sonnet-v2
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20241022_v2__dev
       metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev@vivident.xyz"
     litellm_params:
@@ -29,7 +29,7 @@ model_list:
 # ANTHROPIC/Claude 3.5 sonnet-20240620 (v1)
 # MAIN dev@vivident.xyz
   - model_name: anthropic/claude-3-5-sonnet-v1
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20240620_v1__dev
       metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev@vivident.xyz"
     litellm_params:
@@ -42,7 +42,7 @@ model_list:
 # ANTHROPIC/Claude 3.5 haiku-20241022
 # MAIN dev@vivident.xyz
   - model_name: anthropic/claude-3-5-haiku
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_haiku_20241022__dev
       metadata: "Anthropic Claude 3.5 haiku 20241022, dev@vivident.xyz"
     litellm_params:
@@ -55,7 +55,7 @@ model_list:
 # ANTHROPIC/Claude 3.5 sonnet-20241022 (v2)
 # BACKUP dev_llm_0n
   - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_01
       metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_01@vivident.xyz"
     litellm_params:
@@ -65,7 +65,7 @@ model_list:
         id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_01
 
   - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_02
       metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_02@vivident.xyz"
     litellm_params:
@@ -75,7 +75,7 @@ model_list:
         id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_02
 
   - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_03
       metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_03@vivident.xyz"
     litellm_params:
@@ -85,7 +85,7 @@ model_list:
         id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_03
 
   - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_04
       metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_04@vivident.xyz"
     litellm_params:
@@ -95,7 +95,7 @@ model_list:
         id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_04
 
   - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_05
       metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_05@vivident.xyz"
     litellm_params:
@@ -109,7 +109,7 @@ model_list:
 # ANTHROPIC/Claude 3.5 sonnet-20240620 (v1)
 # BACKUP dev_llm_0n
   - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_01
       metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_01@vivident.xyz"
     litellm_params:
@@ -119,7 +119,7 @@ model_list:
         id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_01
 
   - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_02
       metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_02@vivident.xyz"
     litellm_params:
@@ -129,7 +129,7 @@ model_list:
         id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_02
 
   - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_03
       metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_03@vivident.xyz"
     litellm_params:
@@ -139,7 +139,7 @@ model_list:
         id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_03
 
   - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_04
       metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_04@vivident.xyz"
     litellm_params:
@@ -149,7 +149,7 @@ model_list:
         id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_04
 
   - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_05
       metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_05@vivident.xyz"
     litellm_params:
@@ -164,7 +164,7 @@ model_list:
 # BACKUP dev_llm_0n
 
   - model_name: anthropic/claude-3-5-haiku-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_01
       metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_01@vivident.xyz"
     litellm_params:
@@ -174,7 +174,7 @@ model_list:
         id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_01
 
   - model_name: anthropic/claude-3-5-haiku-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_02
       metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_02@vivident.xyz"
     litellm_params:
@@ -184,7 +184,7 @@ model_list:
         id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_02
 
   - model_name: anthropic/claude-3-5-haiku-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_03
       metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_03@vivident.xyz"
     litellm_params:
@@ -194,7 +194,7 @@ model_list:
         id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_03
 
   - model_name: anthropic/claude-3-5-haiku-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_04
       metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_04@vivident.xyz"
     litellm_params:
@@ -204,7 +204,7 @@ model_list:
         id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_04
 
   - model_name: anthropic/claude-3-5-haiku-backup
-    model_info: 
+    model_info:
       id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_05
       metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_05@vivident.xyz"
     litellm_params:
@@ -218,12 +218,12 @@ model_list:
 #
 # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
   - model_name: bedrock/claude-3-5-sonnet
-    model_info: 
+    model_info:
       id: bedrock_3_5_sonnet_20241022_v2_vivident_us_east_1
       metadata: "Cross Region Inference. 400,000 TPM, 50 RPM"
       region: "us-east-1"
       region_qualname: "N. Virginia"
-    
+
     tpm: 400000
     rpm: 50
 
@@ -238,12 +238,12 @@ model_list:
         mode: completion
 
   - model_name: bedrock/claude-3-5-sonnet
-    model_info: 
+    model_info:
       id: bedrock_3_5_sonnet_20241022_v2_vivident_us_west_2
       metadata: "Cross Region Inference. 2,000,000 TPM, 250 RPM"
       region: "us-west-2"
       region_qualname: "Oregon"
-    
+
     tpm: 2000000
     rpm: 250
 
@@ -263,7 +263,7 @@ model_list:
 # https://github.com/Aider-AI/aider/issues/2262
 # https://github.com/BerriAI/litellm/issues/5899#issuecomment-2375360951
   - model_name: bedrock/claude-3-5-haiku
-    model_info: 
+    model_info:
       id: bedrock_3_5_haiku_20241022_v1_vivident_us_east_1
       metadata: "Cross Region Inference. 40,000 TPM, 20 RPM"
       region: "us-east-1"
@@ -284,7 +284,7 @@ model_list:
         # https://docs.litellm.ai/docs/proxy/health
 
   - model_name: bedrock/claude-3-5-haiku
-    model_info: 
+    model_info:
       id: bedrock_3_5_haiku_20241022_v1_vivident_us_west_2
       metadata: "Cross Region Inference. 40,000 TPM, 20 RPM"
       region: "us-west-2"
@@ -337,7 +337,7 @@ model_list:
       model: openai/fake
       api_key: fake-key
       api_base: https://exampleopenaiendpoint-production.up.railway.app/
-  
+
   - model_name: fake-openai-endpoint-2
     litellm_params:
       model: openai/my-fake-model
@@ -359,10 +359,12 @@ model_list:
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
   drop_params: false  # https://docs.litellm.ai/docs/completion/drop_params
   # cache: true          # set cache responses to True, litellm defaults to using a redis cache
-  num_retries: 1
-  request_timeout: 60
   telemetry: False
-  
+
+  request_timeout: 15
+  num_retries: 1
+  allowed_fails: 3
+
   # https://docs.litellm.ai/docs/completion/stream#error-handling---infinite-loops
   # REPEATED_STREAMING_CHUNK_LIMIT: 100 # this overrides the litellm default
 
@@ -376,17 +378,20 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
    - {"gemini/gemini-2.0-flash-exp": ["gemini/gemini-1.5-flash-latest", "openai/gpt-4o-mini"]}
    - {"anthropic/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
   # Test Anthropic server fallback
-   - {"anthropic/claude-3-5-sonnet-20240620-529": ["bedrock/claude-3-5-sonnet-v1"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-sonnet-v1"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-sonnet-v1"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-429": ["bedrock/claude-3-5-sonnet-v1"]}
-  allowed_fails: 1
+   - {"anthropic/claude-3-5-sonnet-20240620-529": ["bedrock/claude-3-5-haiku"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-haiku"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-haiku"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-429": ["bedrock/claude-3-5-haiku"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-111": ["bedrock/claude-3-5-haiku"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-112": ["bedrock/claude-3-5-haiku"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-113": ["bedrock/claude-3-5-haiku"]}
+   - {"anthropic/claude-3-5-sonnet-20240620-114": ["bedrock/claude-3-5-haiku"]}
 
   success_callback: ["langfuse"] # OPT
   failure_callback: ["langfuse"]  # list of failure callbacks
   # callbacks: ["logfire"]  # list of callbacks - runs on success and failure
   redact_user_api_key_info: true
-  
+
   langfuse_default_tags:
   # default tags for Langfuse Logging
     - "cache_hit"
@@ -403,13 +408,13 @@ router_settings:
   # routing_strategy: usage-based-routing
   routing_strategy: usage-based-routing-v2
   enable_pre_call_checks: true
-  cooldown_time: 0
+  cooldown_time: 30
 
   redis_host: os.environ/REDIS_HOST
   redis_port: os.environ/REDIS_PORT
   redis_password: os.environ/REDIS_PASSWORD
 
-  model_group_alias: 
+  model_group_alias:
     "my-special-fake-model-alias-name": "fake-openai-endpoint-3"
     "anthropic/claude-3-5-sonnet":      "anthropic/claude-3-5-sonnet-v2"
 
