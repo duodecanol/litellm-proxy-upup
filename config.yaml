@@ -357,7 +357,6 @@ model_list:
 
 
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
-  set_verbose: true
   drop_params: false  # https://docs.litellm.ai/docs/completion/drop_params
   # cache: true          # set cache responses to True, litellm defaults to using a redis cache
   num_retries: 1
@@ -373,6 +372,7 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
    - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2", "anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
    - {"bedrock/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
    - {"anthropic/claude-3-5-sonnet-v2": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
+   - {"anthropic/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
    - {"gemini/gemini-2.0-flash-exp": ["gemini/gemini-1.5-flash-latest", "openai/gpt-4o-mini"]}
    - {"anthropic/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
   # Test Anthropic server fallback
