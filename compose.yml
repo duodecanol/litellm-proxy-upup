@@ -10,7 +10,7 @@ services:
     #  - --detailed_debug
      - --num_workers=6
     ports:
-      - "4000:4000"
+      - "${LITELLM_PORT:-4000}:4000"
     depends_on:
       redis:
         condition: service_healthy
