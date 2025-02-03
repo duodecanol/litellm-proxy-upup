@@ -19,7 +19,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 6.0
+          cpus: 8.0
           memory: 4096M
     environment:
         DATABASE_URL: "postgresql://${POSTGRES_USER:-llmproxy}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-litellm}"
@@ -27,7 +27,8 @@ services:
         REDIS_HOST: redis
         REDIS_PORT: 6379
         REDIS_PASSWORD: ${REDIS_PASSWORD}
-        LITELLM_LOG: DEBUG
+        PROMETHEUS_URL: ${PROMETHEUS_URL:-http://prometheus:9090}
+        # LITELLM_LOG: DEBUG
     env_file:
       - .env
 
@@ -74,6 +75,8 @@ services:
       retries: 3
 
   prometheus:
+    profiles:
+      - enterprise
     image: prom/prometheus
     restart: unless-stopped
     volumes:
