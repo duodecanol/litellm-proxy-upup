@@ -10,6 +10,7 @@ model_list:
       model: anthropic/claude-3-5-sonnet-20240620*
       api_base: http://10.78.245.52:9119
       api_key: fake-antropic-key
+      litellm_provider: anthropic
 
 
 ################################################################
@@ -361,9 +362,8 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
   # cache: true          # set cache responses to True, litellm defaults to using a redis cache
   telemetry: False
 
-  request_timeout: 15
   num_retries: 1
-  allowed_fails: 3
+  allowed_fails: 5
 
   # https://docs.litellm.ai/docs/completion/stream#error-handling---infinite-loops
   # REPEATED_STREAMING_CHUNK_LIMIT: 100 # this overrides the litellm default
@@ -378,6 +378,7 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
    - {"gemini/gemini-2.0-flash-exp": ["gemini/gemini-1.5-flash-latest", "openai/gpt-4o-mini"]}
    - {"anthropic/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
   # Test Anthropic server fallback
+  # https://github.com/BerriAI/litellm/blob/main/litellm/litellm_core_utils/exception_mapping_utils.py
    - {"anthropic/claude-3-5-sonnet-20240620-529": ["bedrock/claude-3-5-haiku"]}
    - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-haiku"]}
    - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-haiku"]}
@@ -386,6 +387,8 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
    - {"anthropic/claude-3-5-sonnet-20240620-112": ["bedrock/claude-3-5-haiku"]}
    - {"anthropic/claude-3-5-sonnet-20240620-113": ["bedrock/claude-3-5-haiku"]}
    - {"anthropic/claude-3-5-sonnet-20240620-114": ["bedrock/claude-3-5-haiku"]}
+
+  default_fallbacks: ["bedrock/claude-3-5-haiku"]
 
   success_callback: ["langfuse"] # OPT
   failure_callback: ["langfuse"]  # list of failure callbacks
@@ -409,6 +412,9 @@ router_settings:
   routing_strategy: usage-based-routing-v2
   enable_pre_call_checks: true
   cooldown_time: 30
+
+  timeout: 180           # E2E timeout
+  stream_timeout: 10     # TTFT timeout
 
   redis_host: os.environ/REDIS_HOST
   redis_port: os.environ/REDIS_PORT
