@@ -1,0 +1,3 @@
+[submodule "mock_servers/example_openai_endpoint"]
+	path = mock_servers/example_openai_endpoint
+	url = https://github.com/duodecanol/example_openai_endpoint.git
