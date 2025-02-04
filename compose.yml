@@ -32,6 +32,11 @@ services:
     env_file:
       - .env
 
+  fake-llm:
+    build:
+      context: ./mock_servers/example_openai_endpoint
+      dockerfile: Dockerfile
+
   redis:
     image: redis/redis-stack:7.2.0-v13
     restart: unless-stopped

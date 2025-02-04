@@ -335,9 +335,9 @@ model_list:
 # FAKE OpenAI
   - model_name: fake-openai-endpoint
     litellm_params:
-      model: openai/fake
+      model: openai/fake-gpt-4o-mini
       api_key: fake-key
-      api_base: https://exampleopenaiendpoint-production.up.railway.app/
+      api_base: http://fake-llm:8090
 
   - model_name: fake-openai-endpoint-2
     litellm_params:
@@ -355,7 +355,24 @@ model_list:
       stream_timeout: 0.001
       rpm: 1000
 
+################################################################
+# FAKE Anthropic
+  - model_name: anthropic-fake/*
+    litellm_params:
+      model: anthropic/*
+      api_key: fake-key
+      api_base: http://fake-llm:8090
+      litellm_provider: anthropic
 
+
+################################################################
+# FAKE bedrock
+  - model_name: bedrock-fake/*
+    litellm_params:
+      model: bedrock/*
+      api_key: fake-key
+      api_base: http://fake-llm:8090
+      litellm_provider: bedrock
 
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
   drop_params: false  # https://docs.litellm.ai/docs/completion/drop_params
@@ -388,7 +405,7 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
    - {"anthropic/claude-3-5-sonnet-20240620-113": ["bedrock/claude-3-5-haiku"]}
    - {"anthropic/claude-3-5-sonnet-20240620-114": ["bedrock/claude-3-5-haiku"]}
 
-  default_fallbacks: ["bedrock/claude-3-5-haiku"]
+  # default_fallbacks: ["bedrock/claude-3-5-haiku"]
 
   success_callback: ["langfuse"] # OPT
   failure_callback: ["langfuse"]  # list of failure callbacks
@@ -421,7 +438,6 @@ router_settings:
   redis_password: os.environ/REDIS_PASSWORD
 
   model_group_alias:
-    "my-special-fake-model-alias-name": "fake-openai-endpoint-3"
     "anthropic/claude-3-5-sonnet":      "anthropic/claude-3-5-sonnet-v2"
 
 general_settings:
