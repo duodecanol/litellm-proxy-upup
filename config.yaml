@@ -306,21 +306,78 @@ model_list:
 
 ################################################################
 # GEMINI  |  https://docs.litellm.ai/docs/providers/gemini
+# https://cloud.google.com/vertex-ai/generative-ai/pricing
+# https://cloud.google.com/vertex-ai/generative-ai/docs/quotas
   - model_name: gemini/*
     litellm_params:
       model: gemini/*
-      api_key: os.environ/GEMINI_API_KEY__vivident
-      drop_params: true
-      model_info:
-        mode: completion
-
-  - model_name: gemini/*
-    litellm_params:
-      model: gemini/*
+      litellm_provider: gemini
       api_key: os.environ/GEMINI_API_KEY__dev_01
       drop_params: true
-      model_info:
-        mode: completion
+
+  - model_name: gemini/gemini-2.0-flash-001
+    litellm_params:
+      model: gemini/gemini-2.0-flash-001
+      litellm_provider: gemini
+      api_key: os.environ/GEMINI_API_KEY__dev_01
+      drop_params: true
+    model_info:
+      max_tokens: 8192
+      max_input_tokens: 1048576
+      max_output_tokens: 8192
+      input_cost_per_audio_token: 0.000001
+      input_cost_per_token: 0.00000015
+      output_cost_per_token: 0.0000006
+      mode: chat
+
+################################################################
+# VERTEX AI  |  https://docs.litellm.ai/docs/providers/gemini
+#   litellm docs |-
+#       -  https://docs.litellm.ai/docs/providers/vertex#usage-with-litellm-proxy-server
+#       -  https://docs.litellm.ai/docs/providers/vertex#using-gcp-service-account
+#       -  https://docs.litellm.ai/docs/providers/vertex#dynamic-params
+  - model_name: vertex_ai/*
+    litellm_params:
+      model: vertex_ai/*
+      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+      vertex_project: os.environ/VERTEX_PROJECT_ID
+      vertex_location: us-east5
+  - model_name: vertex_ai/*
+    litellm_params:
+      model: vertex_ai/*
+      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+      vertex_project: os.environ/VERTEX_PROJECT_ID
+      vertex_location: europe-west1
+  ################################################################
+  - model_name: vertex/gemini-2.0-flash-exp
+    litellm_params:
+      model: gemini-2.0-flash-exp
+      litellm_provider: vertex_ai
+      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+      vertex_project: os.environ/VERTEX_PROJECT_ID
+      vertex_location: us-central1
+
+  - model_name: vertex/gemini-2.0-flash
+    litellm_params:
+      model: vertex_ai/gemini-2.0-flash-001
+      litellm_provider: vertex_ai
+      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+      vertex_project: os.environ/VERTEX_PROJECT_ID
+      vertex_location: us-central1
+
+  - model_name: vertex/gemini-1.5-pro
+    litellm_params:
+      model: gemini-1.5-pro-002
+      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+      vertex_project: os.environ/VERTEX_PROJECT_ID
+      vertex_location: us-central1
+
+  - model_name: vertex/gemini-1.5-flash
+    litellm_params:
+      model: gemini-1.5-flash-002
+      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+      vertex_project: os.environ/VERTEX_PROJECT_ID
+      vertex_location: us-central1
 
 ################################################################
 # OPENAI
@@ -381,6 +438,10 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
 
   num_retries: 1
   allowed_fails: 5
+
+  ssl_verify: false
+  # https://docs.litellm.ai/docs/completion/json_mode
+  # enable_json_schema_validation: True
 
   # https://docs.litellm.ai/docs/completion/stream#error-handling---infinite-loops
   # REPEATED_STREAMING_CHUNK_LIMIT: 100 # this overrides the litellm default

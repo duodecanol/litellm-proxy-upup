@@ -1,14 +1,18 @@
 
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:main-stable
+    image: ghcr.io/berriai/litellm:main-v1.60.4
     restart: unless-stopped
     volumes:
      - ./config.yaml:/app/config.yaml
+     - ./.credentials:/app/.credentials
     command:
+      # https://github.com/BerriAI/litellm/blob/main/litellm/proxy/proxy_cli.py
      - --config=/app/config.yaml
-    #  - --detailed_debug
-     - --num_workers=6
+     - --debug
+     - --run_gunicorn
+     - --num_workers=${LITELLM_NUM_WORKERS:-1}
+    #  - --use_queue
     ports:
       - "${LITELLM_PORT:-4000}:4000"
     depends_on:
@@ -36,6 +40,8 @@ services:
     build:
       context: ./mock_servers/example_openai_endpoint
       dockerfile: Dockerfile
+    ports:
+      - "${FAKE_LLM_PORT:-8090}:8090"
 
   redis:
     image: redis/redis-stack:7.2.0-v13
@@ -79,6 +85,20 @@ services:
       timeout: 5s
       retries: 3
 
+  pgadmin:
+    profiles:
+      - enterprise
+    image: dpage/pgadmin4:7.7
+    restart: unless-stopped
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+
   prometheus:
     profiles:
       - enterprise
@@ -99,3 +119,4 @@ volumes:
     driver: local
   redis-data:
   pgdata:
+  pgadmin:
