@@ -725,3 +725,5 @@ kanto.conf
 
 # credentials
 .credentials/*
+!.credentials/.gitkeep
+
