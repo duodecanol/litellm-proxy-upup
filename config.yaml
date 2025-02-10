@@ -342,12 +342,15 @@ model_list:
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: us-east5
+      drop_params: true
+
   - model_name: vertex_ai/*
     litellm_params:
       model: vertex_ai/*
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: europe-west1
+      drop_params: true
   ################################################################
   - model_name: vertex/gemini-2.0-flash-exp
     litellm_params:
@@ -356,6 +359,7 @@ model_list:
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: us-central1
+      drop_params: true
 
   - model_name: vertex/gemini-2.0-flash
     litellm_params:
@@ -364,6 +368,7 @@ model_list:
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: us-central1
+      drop_params: true
     model_info:
       max_tokens: 8192
       max_input_tokens: 1048576
@@ -379,6 +384,7 @@ model_list:
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: us-central1
+      drop_params: true
 
   - model_name: vertex/gemini-1.5-flash
     litellm_params:
@@ -386,6 +392,7 @@ model_list:
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: us-central1
+      drop_params: true
 
 ################################################################
 # OPENAI
@@ -462,6 +469,7 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
    - {"anthropic/claude-3-5-sonnet-v2": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
    - {"anthropic/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
    - {"gemini/gemini-2.0-flash-exp": ["gemini/gemini-1.5-flash-latest", "openai/gpt-4o-mini"]}
+   - {"vertex/gemini-2.0-flash": ["gemini/gemini-2.0-flash-001", "gemini/gemini-1.5-flash-latest", "openai/gpt-4o-mini"]}
    - {"anthropic/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
   # Test Anthropic server fallback
   # https://github.com/BerriAI/litellm/blob/main/litellm/litellm_core_utils/exception_mapping_utils.py
