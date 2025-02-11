@@ -40,6 +40,8 @@ services:
     build:
       context: ./mock_servers/example_openai_endpoint
       dockerfile: Dockerfile
+    command:
+      - --workers=${FAKE_LLM_NUM_WORKERS:-4}
     ports:
       - "${FAKE_LLM_PORT:-8090}:8090"
 
