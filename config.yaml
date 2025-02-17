@@ -105,7 +105,6 @@ model_list:
       rpm: 1000
       model_info:
         id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_05
-
 ################################################################
 # ANTHROPIC/Claude 3.5 sonnet-20240620 (v1)
 # BACKUP dev_llm_0n
@@ -505,7 +504,7 @@ router_settings:
   # routing_strategy: usage-based-routing
   routing_strategy: usage-based-routing-v2
   enable_pre_call_checks: true
-  cooldown_time: 30
+  cooldown_time: 5
 
   timeout: 180           # E2E timeout
   stream_timeout: 10     # TTFT timeout
