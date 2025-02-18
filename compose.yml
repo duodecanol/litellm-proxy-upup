@@ -24,7 +24,7 @@ services:
       resources:
         limits:
           cpus: 8.0
-          memory: 4096M
+          memory: 8192M
     environment:
         DATABASE_URL: "postgresql://${POSTGRES_USER:-llmproxy}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-litellm}"
         STORE_MODEL_IN_DB: "True" # allows adding models to proxy via UI
@@ -76,6 +76,10 @@ services:
     restart: unless-stopped
     volumes:
       - pgdata:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-litellm}
       POSTGRES_USER: ${POSTGRES_USER:-llmproxy}
