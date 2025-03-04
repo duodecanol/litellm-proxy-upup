@@ -214,6 +214,63 @@ model_list:
         id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_05
 
 ################################################################
+# ANTHROPIC/Claude 3.7 sonnet-20250219
+# MAIN dev@vivident.xyz
+  - model_name: anthropic/claude-3-7-sonnet-20250219
+    model_info:
+      id: anthropic__dev
+      metadata: "Anthropic, dev@vivident.xyz"
+    litellm_params:
+      model: anthropic/claude-3-7-sonnet-20250219
+      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      model_info:
+        id: anthropic/claude-3-7-sonnet-20250219?api-key@dev
+
+################################################################
+# BEDROCK/Claude 3.7 sonnet-20250219
+#
+# BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
+  - model_name: bedrock/claude-3-7-sonnet
+    model_info:
+      id: bedrock_3_7_sonnet_20250219_v1_vivident_us_east_1
+      metadata: "Cross Region Inference. 10,000 TPM, 3 RPM"
+      region: "us-east-1"
+      region_qualname: "N. Virginia"
+
+    tpm: 10000
+    rpm: 3
+
+    litellm_params:
+      model: us.anthropic.claude-3-7-sonnet-20250219-v1:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: us-east-1
+      drop_params: true
+      model_info:
+        litellm_provider: bedrock
+        mode: completion
+
+  - model_name: bedrock/claude-3-7-sonnet
+    model_info:
+      id: bedrock_3_7_sonnet_20250219_v1_vivident_us_west_2
+      metadata: "Cross Region Inference. 10,000 TPM, 3 RPM"
+      region: "us-west-2"
+      region_qualname: "Oregon"
+
+    tpm: 10000
+    rpm: 3
+
+    litellm_params:
+      model: us.anthropic.claude-3-7-sonnet-20250219-v1:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: us-west-2
+      drop_params: true
+      model_info:
+        litellm_provider: bedrock
+        mode: completion
+
+################################################################
 # BEDROCK/Claude 3.5 sonnet-20241022 (v2)
 #
 # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
@@ -463,6 +520,7 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
   # https://docs.litellm.ai/docs/proxy/configs#load-balancing
   fallbacks:
   # Main Fallbacks
+   - {"bedrock/claude-3-7-sonnet": ["anthropic/claude-3-7-sonnet-20250219","anthropic/claude-3-5-sonnet-v2", "anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
    - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2", "anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
    - {"bedrock/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
    - {"anthropic/claude-3-5-sonnet-v2": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
