@@ -1,7 +1,7 @@
 
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:main-v1.62.1-nightly
+    image: ghcr.io/berriai/litellm:litellm_stable_release_branch-v1.63.2-stable
     restart: unless-stopped
     volumes:
      - ./config.yaml:/app/config.yaml
