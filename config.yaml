@@ -229,7 +229,7 @@ model_list:
 ################################################################
 # BEDROCK/Claude 3.7 sonnet-20250219
 #
-# BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
+# BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#cross-region-inferencing
   - model_name: bedrock/claude-3-7-sonnet
     model_info:
       id: bedrock_3_7_sonnet_20250219_v1_vivident_us_east_1
@@ -273,7 +273,7 @@ model_list:
 ################################################################
 # BEDROCK/Claude 3.5 sonnet-20241022 (v2)
 #
-# BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#provisioned-throughput-models
+# BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#cross-region-inferencing
   - model_name: bedrock/claude-3-5-sonnet
     model_info:
       id: bedrock_3_5_sonnet_20241022_v2_vivident_us_east_1
@@ -371,23 +371,9 @@ model_list:
       api_key: os.environ/GEMINI_API_KEY__dev_01
       drop_params: true
 
-  - model_name: gemini/gemini-2.0-flash-001
-    litellm_params:
-      model: gemini/gemini-2.0-flash-001
-      litellm_provider: gemini
-      api_key: os.environ/GEMINI_API_KEY__dev_01
-      drop_params: true
-    model_info:
-      max_tokens: 8192
-      max_input_tokens: 1048576
-      max_output_tokens: 8192
-      input_cost_per_audio_token: 0.000001
-      input_cost_per_token: 0.00000015
-      output_cost_per_token: 0.0000006
-      mode: chat
 
 ################################################################
-# VERTEX AI  |  https://docs.litellm.ai/docs/providers/gemini
+# VERTEX AI  |  https://docs.litellm.ai/docs/providers/vertex
 #   litellm docs |-
 #       -  https://docs.litellm.ai/docs/providers/vertex#usage-with-litellm-proxy-server
 #       -  https://docs.litellm.ai/docs/providers/vertex#using-gcp-service-account
@@ -407,44 +393,12 @@ model_list:
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: europe-west1
       drop_params: true
-  ################################################################
-  - model_name: vertex/gemini-2.0-flash-exp
-    litellm_params:
-      model: gemini-2.0-flash-exp
-      litellm_provider: vertex_ai
-      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
-      vertex_project: os.environ/VERTEX_PROJECT_ID
-      vertex_location: us-central1
-      drop_params: true
 
-  - model_name: vertex/gemini-2.0-flash
+################################################################
+# VERTEX AI  Gemini only (location = us-central1)
+  - model_name: vertex/*
     litellm_params:
-      model: vertex_ai/gemini-2.0-flash-001
-      litellm_provider: vertex_ai
-      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
-      vertex_project: os.environ/VERTEX_PROJECT_ID
-      vertex_location: us-central1
-      drop_params: true
-    model_info:
-      max_tokens: 8192
-      max_input_tokens: 1048576
-      max_output_tokens: 8192
-      input_cost_per_audio_token: 0.000001
-      input_cost_per_token: 0.00000015
-      output_cost_per_token: 0.0000006
-      mode: chat
-
-  - model_name: vertex/gemini-1.5-pro
-    litellm_params:
-      model: gemini-1.5-pro-002
-      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
-      vertex_project: os.environ/VERTEX_PROJECT_ID
-      vertex_location: us-central1
-      drop_params: true
-
-  - model_name: vertex/gemini-1.5-flash
-    litellm_params:
-      model: gemini-1.5-flash-002
+      model: vertex_ai/*
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: us-central1
