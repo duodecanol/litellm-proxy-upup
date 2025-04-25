@@ -40,6 +40,7 @@ services:
     build:
       context: ./mock_servers/example_openai_endpoint
       dockerfile: Dockerfile
+    restart: unless-stopped
     command:
       - --workers=${FAKE_LLM_NUM_WORKERS:-4}
     ports:
