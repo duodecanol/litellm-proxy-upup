@@ -288,8 +288,8 @@ model_list:
       region: "us-east-1"
       region_qualname: "N. Virginia"
 
-    tpm: 10000
-    rpm: 3
+    tpm: 1000000
+    rpm: 250
 
     litellm_params:
       model: us.anthropic.claude-3-7-sonnet-20250219-v1:0
@@ -308,8 +308,8 @@ model_list:
       region: "us-west-2"
       region_qualname: "Oregon"
 
-    tpm: 10000
-    rpm: 3
+    tpm: 1000000
+    rpm: 250
 
     litellm_params:
       model: us.anthropic.claude-3-7-sonnet-20250219-v1:0
