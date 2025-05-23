@@ -278,6 +278,32 @@ model_list:
         id: anthropic/claude-3-7-sonnet-20250219?api-key@dev
 
 ################################################################
+# ANTHROPIC/claude-opus-4-20250514
+# MAIN dev@vivident.xyz
+  - model_name: anthropic/claude-opus-4
+    model_info:
+      id: anthropic__dev
+      metadata: "Anthropic, dev@vivident.xyz"
+    litellm_params:
+      model: anthropic/claude-opus-4-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      model_info:
+        id: anthropic/claude-opus-4-20250514?api-key@dev
+
+################################################################
+# ANTHROPIC/claude-sonnet-4-20250514
+# MAIN dev@vivident.xyz
+  - model_name: anthropic/claude-sonnet-4
+    model_info:
+      id: anthropic__dev
+      metadata: "Anthropic, dev@vivident.xyz"
+    litellm_params:
+      model: anthropic/claude-sonnet-4-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      model_info:
+        id: anthropic/claude-sonnet-4-20250514?api-key@dev
+
+################################################################
 # BEDROCK/Claude 3.7 sonnet-20250219
 #
 # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#cross-region-inferencing
