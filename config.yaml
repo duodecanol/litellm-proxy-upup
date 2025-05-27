@@ -304,6 +304,30 @@ model_list:
         id: anthropic/claude-sonnet-4-20250514?api-key@dev
 
 ################################################################
+# BEDROCK/Claude 4 sonnet-20250514
+#
+# BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#cross-region-inferencing
+  - model_name: bedrock/claude-sonnet-4
+    model_info:
+      id: bedrock_4_sonnet_20250514_v1_vivident_us_east_1
+      metadata: "Cross Region Inference. 10,000 TPM, 3 RPM"
+      region: "us-east-1"
+      region_qualname: "N. Virginia"
+
+    # tpm: 1000000
+    # rpm: 250
+
+    litellm_params:
+      model: us.anthropic.claude-sonnet-4-20250514-v1:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: us-east-1
+      drop_params: true
+      model_info:
+        litellm_provider: bedrock
+        mode: completion
+
+################################################################
 # BEDROCK/Claude 3.7 sonnet-20250219
 #
 # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#cross-region-inferencing
