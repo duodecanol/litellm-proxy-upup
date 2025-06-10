@@ -34,7 +34,7 @@ model_list:
   # gemini
   - model_name: rotator
     litellm_params:
-      model: vertex_ai/gemini-2.0-flash
+      model: gemini-2.0-flash
       litellm_provider: vertex_ai
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
@@ -43,7 +43,7 @@ model_list:
 
   - model_name: rotator
     litellm_params:
-      model: vertex_ai/gemini-2.5-flash-preview-04-17
+      model: gemini-2.5-flash-preview-04-17
       litellm_provider: vertex_ai
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
@@ -505,6 +505,18 @@ model_list:
       vertex_location: us-central1
       drop_params: true
 
+  - model_name: gemini-2.5-flash-batch
+    litellm_params:
+      model: gemini-2.5-flash-preview-04-17
+      litellm_provider: vertex_ai
+      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+      vertex_project: os.environ/VERTEX_PROJECT_ID
+      vertex_location: us-central1
+      drop_params: true
+      use_in_pass_through: true
+    model_info:
+      mode: batch
+
 ################################################################
 # OPENAI
   - model_name: openai/*
@@ -513,6 +525,19 @@ model_list:
       api_key: os.environ/OPENAI_API_KEY_DEV
       model_info:
         mode: completion
+
+
+################################################################
+# FILES SETTINGS
+files_settings:
+#   - custom_llm_provider: vertex_ai
+#     api_base: https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/batchPredictionJobs
+#     vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+#     vertex_project: os.environ/VERTEX_PROJECT_ID
+#     vertex_location: us-east5
+  - custom_llm_provider: openai
+    api_key: os.environ/OPENAI_API_KEY_DEV
+
 
 ################################################################
 # FAKE OpenAI
