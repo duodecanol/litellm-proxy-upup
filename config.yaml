@@ -1,26 +1,15 @@
 model_list:
 ################################################################
 # Model rotator
-
-  - model_name: rotator
-    litellm_params:
-      model: us.anthropic.claude-3-5-haiku-20241022-v1:0
-      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
-      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
-      drop_params: true
-      model_info:
-        litellm_provider: bedrock
-        mode: completion
-
-  - model_name: rotator
-    litellm_params:
-      model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
-      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
-      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
-      drop_params: true
-      model_info:
-        litellm_provider: bedrock
-        mode: completion
+  # - model_name: rotator
+  #   litellm_params:
+  #     model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+  #     aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+  #     aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+  #     drop_params: true
+  #     model_info:
+  #       litellm_provider: bedrock
+  #       mode: completion
 
   - model_name: rotator
     litellm_params:
@@ -31,23 +20,31 @@ model_list:
       model_info:
         litellm_provider: bedrock
         mode: completion
+
   # gemini
-  - model_name: rotator
-    litellm_params:
-      model: gemini-2.0-flash
-      litellm_provider: vertex_ai
-      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
-      vertex_project: os.environ/VERTEX_PROJECT_ID
-      vertex_location: us-central1
-      drop_params: true
+  # - model_name: rotator
+  #   litellm_params:
+  #     model: gemini-2.0-flash
+  #     litellm_provider: vertex_ai
+  #     vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+  #     vertex_project: os.environ/VERTEX_PROJECT_ID
+  #     vertex_location: us-central1
+  #     drop_params: true
+
+  # - model_name: rotator
+  #   litellm_params:
+  #     model: gemini-2.5-flash-preview-05-20
+  #     litellm_provider: vertex_ai
+  #     vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+  #     vertex_project: os.environ/VERTEX_PROJECT_ID
+  #     vertex_location: us-central1
+  #     drop_params: true
 
   - model_name: rotator
     litellm_params:
-      model: gemini-2.5-flash-preview-04-17
-      litellm_provider: vertex_ai
-      vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
-      vertex_project: os.environ/VERTEX_PROJECT_ID
-      vertex_location: us-central1
+      model: gemini/gemini-2.5-pro-preview-06-05
+      # litellm_provider: gemini
+      api_key: os.environ/GEMINI_API_KEY__dev_01
       drop_params: true
 
 ################################################################
