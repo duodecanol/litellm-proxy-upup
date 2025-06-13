@@ -12,6 +12,7 @@ model_list:
   #       mode: completion
 
   - model_name: rotator
+  # Sonnet 류는 thinking: enable 하지 않으면 thinking 을 사용하지 않는다.
     litellm_params:
       model: us.anthropic.claude-3-7-sonnet-20250219-v1:0
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
@@ -41,11 +42,23 @@ model_list:
   #     drop_params: true
 
   - model_name: rotator
+  # gemini-2.5-pro-preview 모델은 thinking: disabled를 설정해도 소용이 없다.
+  # 따라서, 최소한의 thinking을 위해서
+  # "thinking": {"type": "enabled", "budget_tokens": 128}
+  # 를 설정해야 한다.
+  # 위 값은 필요한 경우 requester가 override 할 수 있다.
+  #
+  # gemini-2.5-flash-preview 모델은
+  # "thinking": {"type": "enabled", "budget_tokens": 0}
+  # 을 설정하는 것이 가능하다.
     litellm_params:
       model: gemini/gemini-2.5-pro-preview-06-05
       # litellm_provider: gemini
       api_key: os.environ/GEMINI_API_KEY__dev_01
       drop_params: true
+      thinking:
+        type: enabled
+        budget_tokens: 128
 
 ################################################################
 # Fake anthropic
