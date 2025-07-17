@@ -581,7 +581,7 @@ model_list:
       api_base: http://fake-llm:8090
       litellm_provider: bedrock
 
-
+################################################################
 ################################################################
 # FILES SETTINGS
 files_settings:
@@ -593,11 +593,26 @@ files_settings:
   - custom_llm_provider: openai
     api_key: os.environ/OPENAI_API_KEY_DEV
 
+################################################################
+################################################################
+# GUARDRAILS
+guardrails:
+  # https://docs.litellm.ai/docs/proxy/guardrails/bedrock
+  - guardrail_name: "test-guardrail"
+    litellm_params:
+      guardrail: bedrock
+      # mode: "during_call"
+      mode: "pre_call"
+      guardrailIdentifier: k2blhbcmljct
+      guardrailVersion: "1"
+      aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
+      aws_role_name: os.environ/AWS_TEST_GUARDRAIL_ROLE_ARN
+
 
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
   # post_call_rules: plugins.post_call_rules.my_custom_rule
-  # callbacks:
-  #   - plugins.custom_callbacks.proxy_handler_instance
+  callbacks:
+    - plugins.custom_callbacks.proxy_handler_instance
 
 
   drop_params: false  # https://docs.litellm.ai/docs/completion/drop_params
