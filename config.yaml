@@ -538,18 +538,6 @@ model_list:
 
 
 ################################################################
-# FILES SETTINGS
-files_settings:
-#   - custom_llm_provider: vertex_ai
-#     api_base: https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/batchPredictionJobs
-#     vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
-#     vertex_project: os.environ/VERTEX_PROJECT_ID
-#     vertex_location: us-east5
-  - custom_llm_provider: openai
-    api_key: os.environ/OPENAI_API_KEY_DEV
-
-
-################################################################
 # FAKE OpenAI
   - model_name: fake-openai-endpoint
     litellm_params:
@@ -581,6 +569,7 @@ files_settings:
       api_key: fake-key
       api_base: http://fake-llm:8090
       litellm_provider: anthropic
+      drop_params: true
 
 
 ################################################################
@@ -592,7 +581,25 @@ files_settings:
       api_base: http://fake-llm:8090
       litellm_provider: bedrock
 
+
+################################################################
+# FILES SETTINGS
+files_settings:
+#   - custom_llm_provider: vertex_ai
+#     api_base: https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/batchPredictionJobs
+#     vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
+#     vertex_project: os.environ/VERTEX_PROJECT_ID
+#     vertex_location: us-east5
+  - custom_llm_provider: openai
+    api_key: os.environ/OPENAI_API_KEY_DEV
+
+
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
+  # post_call_rules: plugins.post_call_rules.my_custom_rule
+  # callbacks:
+  #   - plugins.custom_callbacks.proxy_handler_instance
+
+
   drop_params: false  # https://docs.litellm.ai/docs/completion/drop_params
   # cache: true          # set cache responses to True, litellm defaults to using a redis cache
   telemetry: False

@@ -1,11 +1,12 @@
 
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:litellm_stable_release_branch-v1.72.6-stable
+    image: ghcr.io/berriai/litellm:main-v1.74.2-nightly
     restart: unless-stopped
     volumes:
      - ./config.yaml:/app/config.yaml
      - ./.credentials:/app/.credentials
+     - ./plugins:/app/plugins
     command:
       # https://github.com/BerriAI/litellm/blob/main/litellm/proxy/proxy_cli.py
      - --config=/app/config.yaml
