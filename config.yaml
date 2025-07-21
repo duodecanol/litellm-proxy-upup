@@ -604,9 +604,18 @@ guardrails:
       # mode: "during_call"
       mode: "pre_call"
       guardrailIdentifier: k2blhbcmljct
-      guardrailVersion: "1"
+      guardrailVersion: "DRAFT"
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
-      aws_role_name: os.environ/AWS_TEST_GUARDRAIL_ROLE_ARN
+
+  - guardrail_name: "imagegen-guardrail"
+    litellm_params:
+      guardrail: bedrock
+      mode: "during_call"
+      guardrailIdentifier: qpk8k2ff0uo9
+      guardrailVersion: "DRAFT"
+      aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
+      # disable_exception_on_block: true
+
 
 
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
