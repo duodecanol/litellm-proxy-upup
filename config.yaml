@@ -601,8 +601,8 @@ guardrails:
   - guardrail_name: "test-guardrail"
     litellm_params:
       guardrail: bedrock
-      # mode: "during_call"
-      mode: "pre_call"
+      mode: "during_call"
+      # mode: "post_call"
       guardrailIdentifier: k2blhbcmljct
       guardrailVersion: "DRAFT"
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
@@ -610,7 +610,9 @@ guardrails:
   - guardrail_name: "imagegen-guardrail"
     litellm_params:
       guardrail: bedrock
-      mode: "during_call"
+      mode:
+        - "during_call"
+        - "post_call"
       guardrailIdentifier: qpk8k2ff0uo9
       guardrailVersion: "DRAFT"
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
@@ -619,7 +621,7 @@ guardrails:
   - guardrail_name: "ifchat-suggestion-guardrail"
     litellm_params:
       guardrail: bedrock
-      mode: "during_call"
+      mode: "post_call"
       guardrailIdentifier: 06aeza14d05z
       guardrailVersion: "DRAFT"
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
