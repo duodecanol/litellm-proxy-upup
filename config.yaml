@@ -616,6 +616,13 @@ guardrails:
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
       # disable_exception_on_block: true
 
+  - guardrail_name: "ifchat-suggestion-guardrail"
+    litellm_params:
+      guardrail: bedrock
+      mode: "during_call"
+      guardrailIdentifier: 06aeza14d05z
+      guardrailVersion: "DRAFT"
+      aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
 
 
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
