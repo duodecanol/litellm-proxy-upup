@@ -626,6 +626,17 @@ guardrails:
       guardrailVersion: "DRAFT"
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
 
+  - guardrail_name: model-armor-shield
+    litellm_params:
+      guardrail: model_armor
+      mode: post_call
+      template_id: test-armour-for-litellm
+      project_id: os.environ/VERTEX_PROJECT_ID
+      location: us-west1
+      credentials: os.environ/GCS_PATH_SERVICE_ACCOUNT
+      mask_request_content: true       # Enable request content masking
+      mask_response_content: true      # Enable response content masking
+      fail_on_error: true             # Fail request if Model Armor errors (default: true)
 
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
   # post_call_rules: plugins.post_call_rules.my_custom_rule
