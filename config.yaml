@@ -640,8 +640,8 @@ guardrails:
 
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
   # post_call_rules: plugins.post_call_rules.my_custom_rule
-  callbacks:
-    - plugins.custom_callbacks.proxy_handler_instance
+  # callbacks:
+  #   - plugins.custom_callbacks.proxy_handler_instance
 
 
   drop_params: true  # https://docs.litellm.ai/docs/completion/drop_params
