@@ -283,7 +283,7 @@ model_list:
       metadata: "Anthropic, dev@vivident.xyz"
     litellm_params:
       model: anthropic/claude-3-7-sonnet-20250219
-      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
       model_info:
         id: anthropic/claude-3-7-sonnet-20250219?api-key@dev
 
@@ -296,7 +296,7 @@ model_list:
       metadata: "Anthropic, dev@vivident.xyz"
     litellm_params:
       model: anthropic/claude-opus-4-20250514
-      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
       model_info:
         id: anthropic/claude-opus-4-20250514?api-key@dev
 
@@ -309,7 +309,7 @@ model_list:
       metadata: "Anthropic, dev@vivident.xyz"
     litellm_params:
       model: anthropic/claude-sonnet-4-20250514
-      api_key: os.environ/ANTHROPIC_API_KEY__dev
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
       model_info:
         id: anthropic/claude-sonnet-4-20250514?api-key@dev
 
