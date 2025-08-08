@@ -174,12 +174,12 @@ async def streaming():
         },
         {"event": "message_stop", "data": {"type": "message_stop"}},
     )
-    await asyncio.sleep(3)
+    await asyncio.sleep(0.01)
     n = 0
     for event in stream_events:
         n += 1
         if n == 6:
-            await asyncio.sleep(3)
+            await asyncio.sleep(0.14)
         else:
             await asyncio.sleep(0.14)
         if isinstance(event, Exception):

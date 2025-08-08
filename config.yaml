@@ -513,7 +513,20 @@ model_list:
       vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: us-central1
-      drop_params: true
+      # drop_params: true
+      safety_settings:
+        - category: HARM_CATEGORY_HARASSMENT
+          threshold: BLOCK_NONE
+        - category: HARM_CATEGORY_HATE_SPEECH
+          threshold: BLOCK_NONE
+        - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
+          threshold: BLOCK_NONE
+        - category: HARM_CATEGORY_DANGEROUS_CONTENT
+          threshold: BLOCK_NONE
+          # BLOCK_NONE
+          # BLOCK_ONLY_HIGH
+          # BLOCK_MEDIUM_AND_ABOVE
+          # BLOCK_LOW_AND_ABOVE
 
   - model_name: gemini-2.5-flash-batch
     litellm_params:
@@ -618,10 +631,21 @@ guardrails:
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
       # disable_exception_on_block: true
 
-  - guardrail_name: "ifchat-suggestion-guardrail"
+  - guardrail_name: "ifchat-converse-input-guardrail"
     litellm_params:
       guardrail: bedrock
-      mode: "post_call"
+      mode: "during_call"
+      # mode: "post_call"
+      guardrailIdentifier: l8pxzglgbo0i
+      guardrailVersion: "DRAFT"
+      aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
+
+  - guardrail_name: "ifchat-general-guardrail"
+    litellm_params:
+      guardrail: bedrock
+      mode:
+        - "during_call"
+        - "post_call"
       guardrailIdentifier: 06aeza14d05z
       guardrailVersion: "DRAFT"
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
@@ -706,7 +730,7 @@ router_settings:
   cooldown_time: 5
 
   timeout: 180           # E2E timeout
-  stream_timeout: 10     # TTFT timeout
+  stream_timeout: 99     # TTFT timeout
 
   redis_host: os.environ/REDIS_HOST
   redis_port: os.environ/REDIS_PORT

@@ -4,7 +4,7 @@ from typing import Any, AsyncGenerator, Literal, Optional
 from litellm.exceptions import InternalServerError
 from litellm.integrations.custom_logger import CustomLogger
 from litellm.proxy.proxy_server import DualCache, UserAPIKeyAuth
-from litellm.types.utils import ModelResponseStream
+from litellm.types.utils import ModelResponseStream, StreamingChoices
 
 
 # This file includes the custom callbacks for LiteLLM Proxy
@@ -110,7 +110,12 @@ class MyCustomHandler(
                 if not x:
                     x = item
                 chunk = item.choices[0]
-                content = chunk.delta.content
+                if not isinstance(chunk, StreamingChoices):
+                    continue
+                delta = chunk.delta
+                if delta.tool_calls:
+                    print(f"@@@@@ { delta.tool_calls = }")
+                content = delta.content
                 print(f"@@@@@ { chunk = }")
 
                 # choice iter, multimodal
