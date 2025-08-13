@@ -22,25 +22,6 @@ model_list:
         litellm_provider: bedrock
         mode: completion
 
-  # gemini
-  # - model_name: rotator
-  #   litellm_params:
-  #     model: gemini-2.0-flash
-  #     litellm_provider: vertex_ai
-  #     vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
-  #     vertex_project: os.environ/VERTEX_PROJECT_ID
-  #     vertex_location: us-central1
-  #     drop_params: true
-
-  # - model_name: rotator
-  #   litellm_params:
-  #     model: gemini-2.5-flash-preview-05-20
-  #     litellm_provider: vertex_ai
-  #     vertex_credentials: os.environ/VERTEX_CREDENTIAL_PATH
-  #     vertex_project: os.environ/VERTEX_PROJECT_ID
-  #     vertex_location: us-central1
-  #     drop_params: true
-
   - model_name: rotator
   # gemini-2.5-pro-preview 모델은 thinking: disabled를 설정해도 소용이 없다.
   # 따라서, 최소한의 thinking을 위해서
@@ -52,7 +33,7 @@ model_list:
   # "thinking": {"type": "enabled", "budget_tokens": 0}
   # 을 설정하는 것이 가능하다.
     litellm_params:
-      model: gemini/gemini-2.5-pro-preview-06-05
+      model: gemini/gemini-2.5-pro
       # litellm_provider: gemini
       api_key: os.environ/GEMINI_API_KEY__dev_01
       drop_params: true
@@ -481,6 +462,19 @@ model_list:
       litellm_provider: gemini
       api_key: os.environ/GEMINI_API_KEY__dev_01
       drop_params: true
+      safety_settings:
+        - category: HARM_CATEGORY_HARASSMENT
+          threshold: BLOCK_MEDIUM_AND_ABOVE
+        - category: HARM_CATEGORY_HATE_SPEECH
+          threshold: BLOCK_MEDIUM_AND_ABOVE
+        - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
+          threshold: BLOCK_MEDIUM_AND_ABOVE
+        - category: HARM_CATEGORY_DANGEROUS_CONTENT
+          threshold: BLOCK_MEDIUM_AND_ABOVE
+          # BLOCK_NONE
+          # BLOCK_ONLY_HIGH
+          # BLOCK_MEDIUM_AND_ABOVE
+          # BLOCK_LOW_AND_ABOVE
 
 
 ################################################################
@@ -644,8 +638,9 @@ guardrails:
     litellm_params:
       guardrail: bedrock
       mode:
-        - "during_call"
-        - "post_call"
+        - "pre_call"
+        # - "during_call"
+        # - "post_call"
       guardrailIdentifier: 06aeza14d05z
       guardrailVersion: "DRAFT"
       aws_region_name: os.environ/AWS_TEST_GUARDRAIL_REGION
