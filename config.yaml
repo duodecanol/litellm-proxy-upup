@@ -680,24 +680,31 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
   # https://docs.litellm.ai/docs/proxy/configs#load-balancing
   fallbacks:
   # Main Fallbacks
-   - {"bedrock/claude-3-7-sonnet": ["anthropic/claude-3-7-sonnet-20250219","anthropic/claude-3-5-sonnet-v2", "anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
-   - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2", "anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
-   - {"bedrock/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
-   - {"anthropic/claude-3-5-sonnet-v2": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
-   - {"anthropic/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
-   - {"gemini/gemini-2.0-flash-exp": ["gemini/gemini-1.5-flash-latest", "openai/gpt-4o-mini"]}
-   - {"vertex/gemini-2.0-flash": ["gemini/gemini-2.0-flash-001", "gemini/gemini-1.5-flash-latest", "openai/gpt-4o-mini"]}
-   - {"anthropic/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
+    - {"bedrock/claude-3-7-sonnet": ["anthropic/claude-3-7-sonnet-20250219","anthropic/claude-3-5-sonnet-v2", "anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
+    - {"bedrock/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2", "anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
+    - {"bedrock/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
+    - {"anthropic/claude-3-5-sonnet-v2": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
+    - {"anthropic/claude-3-5-sonnet": ["anthropic/claude-3-5-sonnet-v2-backup", "anthropic/claude-3-5-sonnet-v1", "anthropic/claude-3-5-sonnet-v1-backup"]}
+    - {"anthropic/claude-3-5-haiku": ["anthropic/claude-3-5-haiku-backup"]}
+    # Error: Not working
+    # - {"gemini/gemini-2.5-pro": ["openai/gpt-4.1-mini", "vertex/gemini-2.5-flash"]}
+    - vertex/gemini-2.5-pro:
+      - vertex/gemini-2.5-flash
+      - openai/gpt-4.1-mini
+    - vertex/gemini-2.0-flash:
+      - vertex/gemini-2.5-flash-lite
+      - openai/gpt-4o-mini
+
   # Test Anthropic server fallback
   # https://github.com/BerriAI/litellm/blob/main/litellm/litellm_core_utils/exception_mapping_utils.py
-   - {"anthropic/claude-3-5-sonnet-20240620-529": ["bedrock/claude-3-5-haiku"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-haiku"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-haiku"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-429": ["bedrock/claude-3-5-haiku"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-111": ["bedrock/claude-3-5-haiku"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-112": ["bedrock/claude-3-5-haiku"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-113": ["bedrock/claude-3-5-haiku"]}
-   - {"anthropic/claude-3-5-sonnet-20240620-114": ["bedrock/claude-3-5-haiku"]}
+    - {"anthropic/claude-3-5-sonnet-20240620-529": ["bedrock/claude-3-5-haiku"]}
+    - {"anthropic/claude-3-5-sonnet-20240620-502": ["bedrock/claude-3-5-haiku"]}
+    - {"anthropic/claude-3-5-sonnet-20240620-500": ["bedrock/claude-3-5-haiku"]}
+    - {"anthropic/claude-3-5-sonnet-20240620-429": ["bedrock/claude-3-5-haiku"]}
+    - {"anthropic/claude-3-5-sonnet-20240620-111": ["bedrock/claude-3-5-haiku"]}
+    - {"anthropic/claude-3-5-sonnet-20240620-112": ["bedrock/claude-3-5-haiku"]}
+    - {"anthropic/claude-3-5-sonnet-20240620-113": ["bedrock/claude-3-5-haiku"]}
+    - {"anthropic/claude-3-5-sonnet-20240620-114": ["bedrock/claude-3-5-haiku"]}
 
   # default_fallbacks: ["bedrock/claude-3-5-haiku"]
 
