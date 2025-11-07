@@ -1,15 +1,4 @@
 model_list:
-################################################################
-# Model rotator
-  # - model_name: rotator
-  #   litellm_params:
-  #     model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
-  #     aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
-  #     aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
-  #     drop_params: true
-  #     model_info:
-  #       litellm_provider: bedrock
-  #       mode: completion
 
   - model_name: rotator
   # Sonnet 류는 thinking: enable 하지 않으면 thinking 을 사용하지 않는다.
@@ -56,251 +45,228 @@ model_list:
 
 
 ################################################################
-# ANTHROPIC/Claude 3.5 sonnet-20241022 (v2)
-# MAIN dev@vivident.xyz
-  - model_name: anthropic/claude-3-5-sonnet-v2
+# ANTHROPIC/Claude sonnet-4.5
+# MAIN
+  - model_name: anthropic/claude-sonnet-4-5
     model_info:
-      id: anthropic_claude_3_5_sonnet_20241022_v2__dev
-      metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev@vivident.xyz"
+      id: anthropic_claude_sonnet_4_5__dev
+      metadata: "Anthropic Claude sonnet 4.5, dev_llm_01@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v2?api-key@dev
-
-################################################################
-# ANTHROPIC/Claude 3.5 sonnet-20240620 (v1)
-# MAIN dev@vivident.xyz
-  - model_name: anthropic/claude-3-5-sonnet-v1
-    model_info:
-      id: anthropic_claude_3_5_sonnet_20240620_v1__dev
-      metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev@vivident.xyz"
-    litellm_params:
-      model: claude-3-5-sonnet-20240620
-      api_key: os.environ/ANTHROPIC_API_KEY__dev
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v1?api-key@dev
-
-################################################################
-# ANTHROPIC/Claude 3.5 haiku-20241022
-# MAIN dev@vivident.xyz
-  - model_name: anthropic/claude-3-5-haiku
-    model_info:
-      id: anthropic_claude_3_5_haiku_20241022__dev
-      metadata: "Anthropic Claude 3.5 haiku 20241022, dev@vivident.xyz"
-    litellm_params:
-      model: claude-3-5-haiku-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev
-      model_info:
-        id: anthropic/claude-3-5-haiku?api-key@dev
-
-################################################################
-# ANTHROPIC/Claude 3.5 sonnet-20241022 (v2)
-# BACKUP dev_llm_0n
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
-    model_info:
-      id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_01
-      metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_01@vivident.xyz"
-    litellm_params:
-      model: claude-3-5-sonnet-20241022
+      model: anthropic/claude-sonnet-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
       model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_01
+        id: anthropic/claude-sonnet-4-5?api-key@dev_llm_01
 
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
+################################################################
+# ANTHROPIC/Claude sonnet 4.0
+# MAIN
+  - model_name: anthropic/claude-sonnet-4-0
     model_info:
-      id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_02
-      metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_02@vivident.xyz"
+      id: anthropic_claude_sonnet_4_0__dev
+      metadata: "Anthropic Claude sonnet 4.0, dev_llm_01@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20241022
+      model: anthropic/claude-sonnet-4-0
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
+      model_info:
+        id: anthropic/claude-sonnet-4-0?api-key@dev_llm_01
+
+################################################################
+# ANTHROPIC/Claude haiku 4.5
+# MAIN
+  - model_name: anthropic/claude-haiku-4-5
+    model_info:
+      id: anthropic_claude_haiku_4_5__dev
+      metadata: "Anthropic Claude haiku 4.5, dev_llm_01@vivident.xyz"
+    litellm_params:
+      model: anthropic/claude-haiku-4-5
+      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
+      model_info:
+        id: anthropic/claude-haiku-4-5?api-key@dev_llm_01
+
+################################################################
+# ANTHROPIC/Claude sonnet 4.5
+# BACKUP dev_llm_0n
+  - model_name: anthropic/claude-sonnet-4-5-backup
+    model_info:
+      id: anthropic_claude_sonnet_4_5_backup__dev_llm_02
+      metadata: "Anthropic Claude sonnet 4.5, dev_llm_02@vivident.xyz"
+    litellm_params:
+      model: anthropic/claude-sonnet-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
       model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_02
+        id: anthropic/claude-sonnet-4-5-backup?api-key@dev_llm_02
 
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
+  - model_name: anthropic/claude-sonnet-4-5-backup
     model_info:
-      id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_03
-      metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_03@vivident.xyz"
+      id: anthropic_claude_sonnet_4_5_backup__dev_llm_03
+      metadata: "Anthropic Claude sonnet 4.5, dev_llm_03@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20241022
+      model: anthropic/claude-sonnet-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_03
       model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_03
+        id: anthropic/claude-sonnet-4-5-backup?api-key@dev_llm_03
 
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
+  - model_name: anthropic/claude-sonnet-4-5-backup
     model_info:
-      id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_04
-      metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_04@vivident.xyz"
+      id: anthropic_claude_sonnet_4_5_backup__dev_llm_04
+      metadata: "Anthropic Claude sonnet 4.5, dev_llm_04@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20241022
+      model: anthropic/claude-sonnet-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
       model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_04
+        id: anthropic/claude-sonnet-4-5-backup?api-key@dev_llm_04
 
-  - model_name: anthropic/claude-3-5-sonnet-v2-backup
+  - model_name: anthropic/claude-sonnet-4-5-backup
     model_info:
-      id: anthropic_claude_3_5_sonnet_20241022_v2_backup__dev_llm_05
-      metadata: "Anthropic Claude 3.5 sonnet 20241022 v2, dev_llm_05@vivident.xyz"
+      id: anthropic_claude_sonnet_4_5_backup__dev_llm_05
+      metadata: "Anthropic Claude sonnet 4.5, dev_llm_05@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20241022
+      model: anthropic/claude-sonnet-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_05
       rpm: 1000
       model_info:
-        id: anthropic/claude-3-5-sonnet-v2-backup?api-key@dev_llm_05
+        id: anthropic/claude-sonnet-4-5-backup?api-key@dev_llm_05
 ################################################################
-# ANTHROPIC/Claude 3.5 sonnet-20240620 (v1)
+# ANTHROPIC/Claude sonnet 4.0
 # BACKUP dev_llm_0n
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
-    model_info:
-      id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_01
-      metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_01@vivident.xyz"
-    litellm_params:
-      model: claude-3-5-sonnet-20240620
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
-      model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_01
 
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
+  - model_name: anthropic/claude-sonnet-4-0-backup
     model_info:
-      id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_02
-      metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_02@vivident.xyz"
+      id: anthropic_claude_sonnet_4_backup__dev_llm_02
+      metadata: "Anthropic Claude sonnet 4, dev_llm_02@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20240620
+      model: anthropic/claude-sonnet-4-0
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
       model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_02
+        id: anthropic/claude-sonnet-4-0-backup?api-key@dev_llm_02
 
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
+  - model_name: anthropic/claude-sonnet-4-0-backup
     model_info:
-      id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_03
-      metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_03@vivident.xyz"
+      id: anthropic_claude_sonnet_4_0_backup__dev_llm_03
+      metadata: "Anthropic Claude sonnet 4.0, dev_llm_03@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20240620
+      model: anthropic/claude-sonnet-4-0
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_03
       model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_03
+        id: anthropic/claude-sonnet-4-0-backup?api-key@dev_llm_03
 
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
+  - model_name: anthropic/claude-sonnet-4-0-backup
     model_info:
-      id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_04
-      metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_04@vivident.xyz"
+      id: anthropic_claude_sonnet_4_0_backup__dev_llm_04
+      metadata: "Anthropic Claude sonnet 4.0, dev_llm_04@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20240620
+      model: anthropic/claude-sonnet-4-0
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
       model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_04
+        id: anthropic/claude-sonnet-4-0-backup?api-key@dev_llm_04
 
-  - model_name: anthropic/claude-3-5-sonnet-v1-backup
+  - model_name: anthropic/claude-sonnet-4-0-backup
     model_info:
-      id: anthropic_claude_3_5_sonnet_20240620_v1_backup__dev_llm_05
-      metadata: "Anthropic Claude 3.5 sonnet 20240620 v1, dev_llm_05@vivident.xyz"
+      id: anthropic_claude_sonnet_4_0_backup__dev_llm_05
+      metadata: "Anthropic Claude sonnet 4.0, dev_llm_05@vivident.xyz"
     litellm_params:
-      model: claude-3-5-sonnet-20240620
+      model: anthropic/claude-sonnet-4-0
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_05
       rpm: 1000
       model_info:
-        id: anthropic/claude-3-5-sonnet-v1-backup?api-key@dev_llm_05
+        id: anthropic/claude-sonnet-4-0-backup?api-key@dev_llm_05
 
 ################################################################
-# ANTHROPIC/Claude 3.5 haiku-20241022
+# ANTHROPIC/Claude haiku 4.5
 # BACKUP dev_llm_0n
 
-  - model_name: anthropic/claude-3-5-haiku-backup
+  - model_name: anthropic/claude-haiku-4-5-backup
     model_info:
-      id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_01
-      metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_01@vivident.xyz"
+      id: anthropic_claude_haiku_4_5_backup__dev_llm_02
+      metadata: "Anthropic Claude haiku 4.5, dev_llm_02@vivident.xyz"
     litellm_params:
-      model: claude-3-5-haiku-20241022
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
-      model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_01
-
-  - model_name: anthropic/claude-3-5-haiku-backup
-    model_info:
-      id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_02
-      metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_02@vivident.xyz"
-    litellm_params:
-      model: claude-3-5-haiku-20241022
+      model: anthropic/claude-haiku-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_02
       model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_02
+        id: anthropic/claude-haiku-4-5-backup?api-key@dev_llm_02
 
-  - model_name: anthropic/claude-3-5-haiku-backup
+  - model_name: anthropic/claude-haiku-4-5-backup
     model_info:
-      id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_03
-      metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_03@vivident.xyz"
+      id: anthropic_claude_haiku_4_5_backup__dev_llm_03
+      metadata: "Anthropic Claude haiku 4.5, dev_llm_03@vivident.xyz"
     litellm_params:
-      model: claude-3-5-haiku-20241022
+      model: anthropic/claude-haiku-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_03
       model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_03
+        id: anthropic/claude-haiku-4-5-backup?api-key@dev_llm_03
 
-  - model_name: anthropic/claude-3-5-haiku-backup
+  - model_name: anthropic/claude-haiku-4-5-backup
     model_info:
-      id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_04
-      metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_04@vivident.xyz"
+      id: anthropic_claude_haiku_4_5_backup__dev_llm_04
+      metadata: "Anthropic Claude haiku 4.5, dev_llm_04@vivident.xyz"
     litellm_params:
-      model: claude-3-5-haiku-20241022
+      model: anthropic/claude-haiku-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_04
       model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_04
+        id: anthropic/claude-haiku-4-5-backup?api-key@dev_llm_04
 
-  - model_name: anthropic/claude-3-5-haiku-backup
+  - model_name: anthropic/claude-haiku-4-5-backup
     model_info:
-      id: anthropic_claude_3_5_haiku_20241022_backup__dev_llm_05
-      metadata: "Anthropic Claude 3.5 haiku 20241022, dev_llm_05@vivident.xyz"
+      id: anthropic_claude_haiku_4_5_backup__dev_llm_05
+      metadata: "Anthropic Claude haiku 4.5, dev_llm_05@vivident.xyz"
     litellm_params:
-      model: claude-3-5-haiku-20241022
+      model: anthropic/claude-haiku-4-5
       api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_05
       model_info:
-        id: anthropic/claude-3-5-haiku-backup?api-key@dev_llm_05
+        id: anthropic/claude-haiku-4-5-backup?api-key@dev_llm_05
 
 ################################################################
-# ANTHROPIC/Claude 3.7 sonnet-20250219
-# MAIN dev@vivident.xyz
-  - model_name: anthropic/claude-3-7-sonnet-20250219
+# BEDROCK/Claude sonnet 4.5
+#
+# BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#cross-region-inferencing
+  - model_name: bedrock/claude-sonnet-4-5
     model_info:
-      id: anthropic__dev
-      metadata: "Anthropic, dev@vivident.xyz"
+      id: bedrock_4_5_sonnet_20250929_v1_vivident_us_east_1
+      metadata: "Cross Region Inference. 10,000 TPM, 3 RPM"
+      region: "us-east-1"
+      region_qualname: "N. Virginia"
+
+    # tpm: 1000000
+    # rpm: 250
+
     litellm_params:
-      model: anthropic/claude-3-7-sonnet-20250219
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
+      model: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: us-east-1
+      drop_params: true
       model_info:
-        id: anthropic/claude-3-7-sonnet-20250219?api-key@dev
+        litellm_provider: bedrock
+        mode: completion
+
 
 ################################################################
-# ANTHROPIC/claude-opus-4-20250514
-# MAIN dev@vivident.xyz
-  - model_name: anthropic/claude-opus-4
+# BEDROCK/Claude haiku 4.5
+#
+  - model_name: bedrock/claude-haiku-4-5
     model_info:
-      id: anthropic__dev
-      metadata: "Anthropic, dev@vivident.xyz"
-    litellm_params:
-      model: anthropic/claude-opus-4-20250514
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
-      model_info:
-        id: anthropic/claude-opus-4-20250514?api-key@dev
+      id: bedrock_4_5_haiku_20251001_v1_vivident_us_east_1
+      metadata: "Cross Region Inference. 40,000 TPM, 20 RPM"
+      region: "us-east-1"
+      region_qualname: "N. Virginia"
 
-################################################################
-# ANTHROPIC/claude-sonnet-4-20250514
-# MAIN dev@vivident.xyz
-  - model_name: anthropic/claude-sonnet-4
-    model_info:
-      id: anthropic__dev
-      metadata: "Anthropic, dev@vivident.xyz"
     litellm_params:
-      model: anthropic/claude-sonnet-4-20250514
-      api_key: os.environ/ANTHROPIC_API_KEY__dev_llm_01
+      model: us.anthropic.claude-haiku-4-5-20251001-v1:0
+      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
+      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
+      aws_region_name: us-east-1
+      drop_params: true
       model_info:
-        id: anthropic/claude-sonnet-4-20250514?api-key@dev
+        litellm_provider: bedrock
+        mode: completion
 
 ################################################################
 # BEDROCK/Claude 4 sonnet-20250514
 #
 # BEDROCK  |  https://docs.litellm.ai/docs/providers/bedrock#cross-region-inferencing
-  - model_name: bedrock/claude-sonnet-4
+  - model_name: bedrock/claude-sonnet-4-0
     model_info:
-      id: bedrock_4_sonnet_20250514_v1_vivident_us_east_1
+      id: bedrock_4_0_sonnet_20250514_v1_vivident_us_east_1
       metadata: "Cross Region Inference. 10,000 TPM, 3 RPM"
       region: "us-east-1"
       region_qualname: "N. Virginia"
@@ -451,6 +417,9 @@ model_list:
       model_info:
         litellm_provider: bedrock
         mode: completion
+
+################################################################
+################################################################
 
 ################################################################
 # GEMINI  |  https://docs.litellm.ai/docs/providers/gemini
