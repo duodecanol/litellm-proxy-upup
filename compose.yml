@@ -1,7 +1,7 @@
 
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:main-v1.75.8-stable
+    image: ghcr.io/berriai/litellm:main-v1.79.0-stable
     restart: unless-stopped
     volumes:
      - ./config.yaml:/app/config.yaml
@@ -51,7 +51,7 @@ services:
     image: redis/redis-stack:7.2.0-v13
     restart: unless-stopped
     ports:
-      - "${REDIS_SERVER_PORT:-6379}:6379"
+      # - "${REDIS_SERVER_PORT:-6379}:6379"
       - "${REDIS_INSIGHT_PORT:-8001}:8001"
     volumes:
       - redis-data:/data
