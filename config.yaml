@@ -431,15 +431,15 @@ model_list:
       litellm_provider: gemini
       api_key: os.environ/GEMINI_API_KEY__dev_01
       drop_params: true
-      safety_settings:
-        - category: HARM_CATEGORY_HARASSMENT
-          threshold: BLOCK_MEDIUM_AND_ABOVE
-        - category: HARM_CATEGORY_HATE_SPEECH
-          threshold: BLOCK_MEDIUM_AND_ABOVE
-        - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
-          threshold: BLOCK_MEDIUM_AND_ABOVE
-        - category: HARM_CATEGORY_DANGEROUS_CONTENT
-          threshold: BLOCK_MEDIUM_AND_ABOVE
+      # safety_settings:
+      #   - category: HARM_CATEGORY_HARASSMENT
+      #     threshold: BLOCK_MEDIUM_AND_ABOVE
+      #   - category: HARM_CATEGORY_HATE_SPEECH
+      #     threshold: BLOCK_MEDIUM_AND_ABOVE
+      #   - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
+      #     threshold: BLOCK_MEDIUM_AND_ABOVE
+      #   - category: HARM_CATEGORY_DANGEROUS_CONTENT
+      #     threshold: BLOCK_MEDIUM_AND_ABOVE
           # BLOCK_NONE
           # BLOCK_ONLY_HIGH
           # BLOCK_MEDIUM_AND_ABOVE
@@ -477,15 +477,15 @@ model_list:
       vertex_project: os.environ/VERTEX_PROJECT_ID
       vertex_location: us-central1
       # drop_params: true
-      safety_settings:
-        - category: HARM_CATEGORY_HARASSMENT
-          threshold: BLOCK_NONE
-        - category: HARM_CATEGORY_HATE_SPEECH
-          threshold: BLOCK_NONE
-        - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
-          threshold: BLOCK_NONE
-        - category: HARM_CATEGORY_DANGEROUS_CONTENT
-          threshold: BLOCK_NONE
+      # safety_settings:
+      #   - category: HARM_CATEGORY_HARASSMENT
+      #     threshold: BLOCK_NONE
+      #   - category: HARM_CATEGORY_HATE_SPEECH
+      #     threshold: BLOCK_NONE
+      #   - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
+      #     threshold: BLOCK_NONE
+      #   - category: HARM_CATEGORY_DANGEROUS_CONTENT
+      #     threshold: BLOCK_NONE
           # BLOCK_NONE
           # BLOCK_ONLY_HIGH
           # BLOCK_MEDIUM_AND_ABOVE
