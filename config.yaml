@@ -49,7 +49,7 @@ model_list:
 # MAIN
   - model_name: anthropic/claude-sonnet-4-5
     model_info:
-      id: anthropic_claude_sonnet_4_5__dev
+      id: anthropic_claude_sonnet_4_5__dev_llm_01
       metadata: "Anthropic Claude sonnet 4.5, dev_llm_01@vivident.xyz"
     litellm_params:
       model: anthropic/claude-sonnet-4-5
@@ -62,7 +62,7 @@ model_list:
 # MAIN
   - model_name: anthropic/claude-sonnet-4-0
     model_info:
-      id: anthropic_claude_sonnet_4_0__dev
+      id: anthropic_claude_sonnet_4_0__dev_llm_01
       metadata: "Anthropic Claude sonnet 4.0, dev_llm_01@vivident.xyz"
     litellm_params:
       model: anthropic/claude-sonnet-4-0
@@ -75,7 +75,7 @@ model_list:
 # MAIN
   - model_name: anthropic/claude-haiku-4-5
     model_info:
-      id: anthropic_claude_haiku_4_5__dev
+      id: anthropic_claude_haiku_4_5__dev_llm_01
       metadata: "Anthropic Claude haiku 4.5, dev_llm_01@vivident.xyz"
     litellm_params:
       model: anthropic/claude-haiku-4-5
@@ -230,7 +230,7 @@ model_list:
     # rpm: 250
 
     litellm_params:
-      model: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+      model: global.anthropic.claude-sonnet-4-5-20250929-v1:0
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-east-1
@@ -245,16 +245,16 @@ model_list:
 #
   - model_name: bedrock/claude-haiku-4-5
     model_info:
-      id: bedrock_4_5_haiku_20251001_v1_vivident_us_east_1
+      id: bedrock_4_5_haiku_20251001_v1_vivident_us_west_2
       metadata: "Cross Region Inference. 40,000 TPM, 20 RPM"
-      region: "us-east-1"
-      region_qualname: "N. Virginia"
+      region: "us-west-2"
+      region_qualname: "Oregon"
 
     litellm_params:
-      model: us.anthropic.claude-haiku-4-5-20251001-v1:0
+      model: global.anthropic.claude-haiku-4-5-20251001-v1:0
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
-      aws_region_name: us-east-1
+      aws_region_name: us-west-2
       drop_params: true
       model_info:
         litellm_provider: bedrock
@@ -275,7 +275,7 @@ model_list:
     # rpm: 250
 
     litellm_params:
-      model: us.anthropic.claude-sonnet-4-20250514-v1:0
+      model: global.anthropic.claude-sonnet-4-20250514-v1:0
       aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
       aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: us-east-1
